@@ -844,6 +844,36 @@ section {
     font-size: 0.95rem;
 }
 
+/* Beyond Images Layout */
+.beyond-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.b-img {
+    max-width: 45%;
+    object-fit: cover;
+    height: auto;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.b-img:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .b-img {
+        max-width: 100%;
+    }
+}
+
 /* Achievement Photo Gallery */
 .achievement-gallery {
     margin-top: 5rem;
