@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaGithub, FaRobot, FaExternalLinkAlt, FaRocket } from 'react-icons/fa';
+import { getJson } from '../lib/api.js';
 import '../styles/projects.css';
 
 export default function Projects() {
@@ -26,8 +27,7 @@ export default function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch('/api/projects');
-        const data = await res.json();
+        const data = await getJson('/projects');
         setProjects(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error('Failed to fetch projects:', err);

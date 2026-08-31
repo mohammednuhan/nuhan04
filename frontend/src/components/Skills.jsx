@@ -23,6 +23,7 @@ import {
   SiScikitlearn,
   SiVercel,
 } from 'react-icons/si';
+import { getJson } from '../lib/api.js';
 import '../styles/skills.css';
 
 const iconMap = {
@@ -83,8 +84,7 @@ export default function Skills() {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const res = await fetch('/api/skills');
-        const data = await res.json();
+        const data = await getJson('/skills');
         setSkills(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error('Failed to fetch skills:', err);

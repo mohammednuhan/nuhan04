@@ -10,6 +10,7 @@ import {
   FaRunning,
   FaFlagCheckered,
 } from 'react-icons/fa';
+import { getJson } from '../lib/api.js';
 import '../styles/beyond.css';
 
 const traitIcons = {
@@ -57,12 +58,10 @@ export default function Beyond() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [traitsRes, sportsRes] = await Promise.all([
-          fetch('/api/beyond/traits'),
-          fetch('/api/beyond/sports'),
+        const [traitsData, sportsData] = await Promise.all([
+          getJson('/beyond/traits'),
+          getJson('/beyond/sports'),
         ]);
-        const traitsData = await traitsRes.json();
-        const sportsData = await sportsRes.json();
         setTraits(Array.isArray(traitsData) ? traitsData : []);
         setSports(Array.isArray(sportsData) ? sportsData : []);
       } catch (err) {

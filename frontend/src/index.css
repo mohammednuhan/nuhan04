@@ -61,6 +61,56 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; lin
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 220% 220%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animated section title underline */
+.section-title {
+  position: relative;
+  padding-bottom: 0.85rem;
+  width: fit-content;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 46px;
+  border-radius: 3px;
+  background: var(--gradient-primary);
+  background-size: 220% 100%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.section-header .section-title,
+.about-header .section-title,
+.skills-header .section-title,
+.education-header .section-title,
+.projects-header .section-title,
+.beyond-header .section-title,
+.contact-header .section-title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-header .section-title::after,
+.about-header .section-title::after,
+.skills-header .section-title::after,
+.education-header .section-title::after,
+.projects-header .section-title::after,
+.beyond-header .section-title::after,
+.contact-header .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .section {

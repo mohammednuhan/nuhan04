@@ -24,7 +24,6 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section contact-section content-visibility-auto">
-      <div className="contact-blob" />
       <div className="contact-container">
         <div className="contact-header">
           <h2 className={`section-title gradient-text ${visible ? 'visible' : 'fade-up'}`}>
@@ -43,7 +42,7 @@ export default function Contact() {
             </div>
             <div>
               <span className="contact-item-label">Email</span>
-              <a href="mailto:nuhan@example.com" className="contact-item-value">
+              <a href="mailto:nuhanmohammed04@gmail.com" className="contact-item-value">
                 nuhanmohammed04@gmail.com
               </a>
             </div>
@@ -83,7 +82,7 @@ export default function Contact() {
 
         <div className="contact-cta">
           <a
-            href="mailto:nuhan@example.com"
+            href="mailto:nuhanmohammed04@gmail.com"
             className={`btn btn-primary ${visible ? 'visible' : 'fade-up'}`}
           >
             <FaPaperPlane size={16} />

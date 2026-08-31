@@ -35,6 +35,11 @@ async function main() {
       { name: "PostgreSQL", icon: "postgresql", color: "#4169E1", category: "Databases", description: "Relational database & SQL." },
       { name: "MongoDB", icon: "mongodb", color: "#47A248", category: "Databases", description: "NoSQL document database." },
       { name: "Redis", icon: "redis", color: "#DC382D", category: "Databases", description: "In-memory caching & queues." },
+      { name: "REST API", icon: "code", color: "#00d4aa", category: "Web Development", description: "Designing & consuming RESTful APIs." },
+      { name: "Angular", icon: "angular", color: "#DD0031", category: "Web Development", description: "TypeScript-based frontend framework." },
+      { name: "API Testing", icon: "code", color: "#8B5CF6", category: "DevOps", description: "Testing & validating RESTful APIs." },
+      { name: "GitHub", icon: "git", color: "#181717", category: "DevOps", description: "Version control hosting & collaboration." },
+      { name: "Prisma", icon: "database", color: "#2D3748", category: "Databases", description: "Modern TypeScript ORM for Node.js." },
     ],
   });
   console.log(`Created ${skills.count} skills`);

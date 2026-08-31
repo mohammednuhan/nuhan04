@@ -39,8 +39,12 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Only start the HTTP listener when run directly (e.g. npm start / local dev).
+// When imported as a module (Vercel serverless), the exported `app` is used instead.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
 module.exports = { app, prisma };

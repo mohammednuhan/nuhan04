@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaGraduationCap, FaSchool } from 'react-icons/fa';
+import { getJson } from '../lib/api.js';
 import '../styles/education.css';
 
 export default function Education() {
@@ -26,8 +27,7 @@ export default function Education() {
   useEffect(() => {
     const fetchEducation = async () => {
       try {
-        const res = await fetch('/api/education');
-        const data = await res.json();
+        const data = await getJson('/education');
         setEducation(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error('Failed to fetch education:', err);

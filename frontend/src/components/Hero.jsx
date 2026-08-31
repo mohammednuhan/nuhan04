@@ -97,7 +97,7 @@ export default function Hero() {
           <a href="https://www.linkedin.com/in/mohammednuhan04/" target="_blank" rel="noopener noreferrer" className="hero-social-icon" aria-label="LinkedIn">
             <FaLinkedinIn size={20} />
           </a>
-          <a href="nuhanmohammed04@gmail.com" className="hero-social-icon" aria-label="Email">
+          <a href="mailto:nuhanmohammed04@gmail.com" className="hero-social-icon" aria-label="Email">
             <FaEnvelope size={20} />
           </a>
           <a href="#" className="hero-social-icon" aria-label="Resume">
