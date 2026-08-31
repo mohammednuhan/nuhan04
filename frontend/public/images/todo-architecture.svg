@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" width="800" height="430" role="img" aria-label="To-Do API - Authentication and CRUD architecture diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1524"/>
+      <stop offset="100%" stop-color="#181033"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00b7ff"/>
+      <stop offset="100%" stop-color="#00d4aa"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9966ff"/>
+      <stop offset="100%" stop-color="#4f8eff"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="100%" stop-color="#ff9f43"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="430" rx="20" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#00d4aa">✓ To-Do API</text>
+  <text x="400" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9aa3b5">Node.js Learning Project - Authentication &amp; CRUD API</text>
+
+  <!-- Client -->
+  <rect x="28" y="120" width="140" height="80" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2" filter="url(#glow)"/>
+  <text x="98" y="146" text-anchor="middle" font-family="Arial" font-size="14" fill="#ffffff" font-weight="bold">Client</text>
+  <text x="98" y="166" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">Postman / CLI</text>
+  <text x="98" y="186" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">sends JSON requests</text>
+
+  <!-- Express server -->
+  <rect x="230" y="118" width="180" height="84" rx="12" fill="#1c2333" stroke="url(#warm)" stroke-width="2" filter="url(#glow)"/>
+  <text x="320" y="144" text-anchor="middle" font-family="Arial" font-size="14" fill="#ffffff" font-weight="bold">Express Server</text>
+  <text x="320" y="164" text-anchor="middle" font-family="monospace, Arial" font-size="10" fill="#ff9f43">POST /signup</text>
+  <text x="320" y="180" text-anchor="middle" font-family="monospace, Arial" font-size="10" fill="#ff9f43">POST /signin</text>
+  <text x="320" y="196" text-anchor="middle" font-family="monospace, Arial" font-size="10" fill="#ff9f43">POST /todo · GET /todo</text>
+
+  <!-- Auth middleware -->
+  <rect x="470" y="118" width="150" height="84" rx="12" fill="#1c2333" stroke="url(#purple)" stroke-width="2"/>
+  <text x="545" y="146" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Auth Middleware</text>
+  <text x="545" y="166" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">verifies JWT token</text>
+  <text x="545" y="184" text-anchor="middle" font-family="Arial" font-size="10" fill="#9966ff">protects /todo routes</text>
+
+  <!-- PostgreSQL -->
+  <rect x="580" y="280" width="180" height="70" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2"/>
+  <ellipse cx="670" cy="290" rx="80" ry="8" fill="none" stroke="#00d4aa" stroke-width="1.5" opacity="0.5"/>
+  <text x="670" y="314" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">PostgreSQL</text>
+  <text x="670" y="334" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">users · todo tables</text>
+
+  <!-- JWT box -->
+  <rect x="30" y="290" width="150" height="54" rx="12" fill="#1c2333" stroke="url(#warm)" stroke-width="2"/>
+  <text x="105" y="314" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">JWT Token</text>
+  <text x="105" y="332" text-anchor="middle" font-family="Arial" font-size="10" fill="#ff9f43">returned on signin</text>
+
+  <!-- arrows -->
+  <line x1="168" y1="150" x2="228" y2="156" stroke="#00d4aa" stroke-width="2" marker-end="url(#blue-arrow)"/>
+  <line x1="410" y1="156" x2="468" y2="156" stroke="#9966ff" stroke-width="2" marker-end="url(#purple-arrow)"/>
+
+  <!-- client to JWT -->
+  <line x1="98" y1="200" x2="102" y2="288" stroke="#ff9f43" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#warm-arrow)"/>
+
+  <!-- auth to DB -->
+  <line x1="545" y1="202" x2="620" y2="278" stroke="#00b7ff" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#blue-arrow)"/>
+  <!-- server to DB -->
+  <line x1="380" y1="202" x2="560" y2="300" stroke="#00d4aa" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#blue-arrow)"/>
+
+  <defs>
+    <marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00d4aa"/>
+    </marker>
+    <marker id="purple-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9966ff"/>
+    </marker>
+    <marker id="warm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ff9f43"/>
+    </marker>
+  </defs>
+
+  <!-- footer -->
+  <text x="400" y="410" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">Node.js + Express + PostgreSQL + JWT | learning auth &amp; CRUD</text>
+</svg>
