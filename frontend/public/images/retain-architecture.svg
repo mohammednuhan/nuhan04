@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" role="img" aria-label="RETAIN - Terminal-Based AI Agent architecture diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1524"/>
+      <stop offset="100%" stop-color="#181033"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00b7ff"/>
+      <stop offset="100%" stop-color="#00d4aa"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9966ff"/>
+      <stop offset="100%" stop-color="#4f8eff"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="100%" stop-color="#ff9f43"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="440" rx="20" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-family="monospace, Arial" font-size="24" font-weight="bold" fill="#00d4aa">RETAIN</text>
+  <text x="400" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9aa3b5">Terminal-Based AI Agent - fully hand-coded</text>
+
+  <!-- User terminal -->
+  <rect x="30" y="120" width="150" height="80" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2" filter="url(#glow)"/>
+  <text x="105" y="144" text-anchor="middle" font-family="monospace, Arial" font-size="13" fill="#ffffff" font-weight="bold">Terminal</text>
+  <text x="105" y="164" text-anchor="middle" font-family="monospace, Arial" font-size="10" fill="#00d4aa">$ python agent.py</text>
+  <text x="105" y="184" text-anchor="middle" font-family="monospace, Arial" font-size="10" fill="#9aa3b5">You &gt; ...</text>
+
+  <!-- AI model -->
+  <rect x="600" y="120" width="170" height="80" rx="12" fill="#1c2333" stroke="url(#purple)" stroke-width="2" filter="url(#glow)"/>
+  <text x="685" y="146" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">AI Model</text>
+  <text x="685" y="166" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">OpenRouter API</text>
+  <text x="685" y="184" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">Tool-calling LLM</text>
+
+  <!-- Retain agent core -->
+  <rect x="250" y="150" width="220" height="60" rx="12" fill="#161b2e" stroke="url(#warm)" stroke-width="2"/>
+  <text x="360" y="176" text-anchor="middle" font-family="Arial" font-size="14" fill="#ffffff" font-weight="bold">Retain Agent Loop</text>
+  <text x="360" y="196" text-anchor="middle" font-family="Arial" font-size="10" fill="#ff9f43">conversation history + tool dispatch</text>
+
+  <!-- Tool boxes row -->
+  <text x="400" y="270" text-anchor="middle" font-family="Arial" font-size="12" fill="#9aa3b5">7 Tools</text>
+
+  <rect x="70" y="290" width="118" height="54" rx="10" fill="#1c2333" stroke="#00b7ff" stroke-width="2"/>
+  <text x="129" y="314" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">run_shell</text>
+  <text x="129" y="332" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">run commands</text>
+
+  <rect x="220" y="290" width="118" height="54" rx="10" fill="#1c2333" stroke="#00b7ff" stroke-width="2"/>
+  <text x="279" y="314" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">read_file</text>
+  <text x="279" y="332" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">read contents</text>
+
+  <rect x="370" y="290" width="118" height="54" rx="10" fill="#1c2333" stroke="#00b7ff" stroke-width="2"/>
+  <text x="429" y="314" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">write_file</text>
+  <text x="429" y="332" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">write new files</text>
+
+  <rect x="520" y="290" width="118" height="54" rx="10" fill="#1c2333" stroke="#00b7ff" stroke-width="2"/>
+  <text x="579" y="314" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">edit_file</text>
+  <text x="579" y="332" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">surgical edits</text>
+
+  <rect x="120" y="360" width="118" height="54" rx="10" fill="#1c2333" stroke="#00d4aa" stroke-width="2"/>
+  <text x="179" y="384" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">list_directory</text>
+  <text x="179" y="402" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">list files</text>
+
+  <rect x="270" y="360" width="118" height="54" rx="10" fill="#1c2333" stroke="#00d4aa" stroke-width="2"/>
+  <text x="329" y="384" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">create_dir</text>
+  <text x="329" y="402" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">make folders</text>
+
+  <rect x="420" y="360" width="118" height="54" rx="10" fill="#1c2333" stroke="#00d4aa" stroke-width="2"/>
+  <text x="479" y="384" text-anchor="middle" font-family="monospace, Arial" font-size="11" fill="#ffffff">search_in_files</text>
+  <text x="479" y="402" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">find patterns</text>
+
+  <!-- Arrows between terminal and agent -->
+  <line x1="180" y1="155" x2="248" y2="172" stroke="#00d4aa" stroke-width="2" marker-end="url(#blue-arrow)"/>
+  <line x1="248" y1="188" x2="180" y2="172" stroke="#00d4aa" stroke-width="2"/>
+
+  <!-- Arrows agent to model -->
+  <line x1="470" y1="168" x2="598" y2="152" stroke="#9966ff" stroke-width="2" marker-end="url(#purple-arrow)"/>
+  <line x1="600" y1="176" x2="472" y2="186" stroke="#9966ff" stroke-width="2"/>
+
+  <!-- Arrows agent to tools -->
+  <line x1="300" y1="210" x2="140" y2="288" stroke="#00b7ff" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="340" y1="210" x2="280" y2="288" stroke="#00b7ff" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="380" y1="210" x2="430" y2="288" stroke="#00b7ff" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="420" y1="210" x2="570" y2="288" stroke="#00b7ff" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <defs>
+    <marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00d4aa"/>
+    </marker>
+    <marker id="purple-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9966ff"/>
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="435" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">Python + OpenAI SDK + Rich | 7 tools | conversation memory</text>
+</svg>

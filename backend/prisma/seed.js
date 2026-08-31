@@ -48,6 +48,28 @@ async function main() {
         order: 1,
       },
       {
+        title: "PAYTM Clone — Digital Wallet & Payments",
+        description:
+          "A full-stack digital wallet and payment application inspired by Paytm. Features secure JWT authentication, wallet deposit/withdraw and balance management, money transfers between users, and a transaction history built on a credit/debit ledger system using Prisma & PostgreSQL.",
+        tags: ["React", "Node.js", "Express", "Prisma", "PostgreSQL", "JWT"],
+        githubUrl: "https://github.com/mohammednuhan/paytm-clone-app",
+        liveUrl: null,
+        imageUrl: "/images/paytm-architecture.svg",
+        featured: true,
+        order: 2,
+      },
+      {
+        title: "RETAIN — Terminal-Based AI Agent",
+        description:
+          "A lightweight terminal-based AI agent built in Python (fully hand-coded, no AI used). It provides an interactive CLI to chat with an AI model and perform real tasks via 7 tools: run shell commands, read/write/edit files, list & create directories, and search across files — all with a Rich-powered terminal interface.",
+        tags: ["Python", "OpenAI SDK", "Rich", "OpenRouter", "CLI"],
+        githubUrl: "https://github.com/mohammednuhan/Retain",
+        liveUrl: null,
+        imageUrl: "/images/retain-architecture.svg",
+        featured: true,
+        order: 3,
+      },
+      {
         title: "AI Agent Prototype",
         description:
           "An intelligent AI agent built with Python and TensorFlow that can perform autonomous tasks, learn from interactions, and adapt its behavior. Features natural language processing, decision-making algorithms, and a clean web interface for monitoring agent performance.",
@@ -56,7 +78,7 @@ async function main() {
         liveUrl: null,
         imageUrl: null,
         featured: true,
-        order: 2,
+        order: 4,
       },
       {
         title: "DSA Visualizer",
@@ -67,7 +89,7 @@ async function main() {
         liveUrl: null,
         imageUrl: null,
         featured: true,
-        order: 3,
+        order: 5,
       },
     ],
   });

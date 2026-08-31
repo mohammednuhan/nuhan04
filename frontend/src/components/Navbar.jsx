@@ -58,7 +58,7 @@ export default function Navbar() {
       <div className="navbar-container">
         <a href="#hero" className="navbar-logo" onClick={(e) => handleLinkClick(e, '#hero')}>
           <img src="/images/profile.jpeg" alt="Nuhan" className="navbar-avatar" />
-          <span className="navbar-logo-text">NUHAN.</span>
+          <span className="navbar-logo-text">NUHAN</span>
         </a>
 
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>

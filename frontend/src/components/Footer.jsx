@@ -7,12 +7,11 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-logo">
           <img src="/images/profile.jpeg" alt="MN" className="footer-avatar" />
-          <span className="footer-logo-text">MN.dev</span>
         </div>
         <p className="footer-text">
-          Managed by<span className="footer-name">Mohammed Nuhan</span>
+        Designed & built by<span className="footer-name"> Mohammed Nuhan</span>
         </p>
-        <p className="footer-copyright">2026 Mohammed Nuhan</p>
+        <p className="footer-copyright">Thanks for visiting! Until next time.</p>
       </div>
     </footer>
   );
