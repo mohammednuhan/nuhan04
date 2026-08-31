@@ -19,12 +19,12 @@ const siteInfo = {
     ],
   },
   socials: {
-    github: "https://github.com/nuhan",
-    linkedin: "https://linkedin.com/in/nuhan",
-    email: "nuhan@example.com",
+    github: "https://github.com/mohammednuhan",
+    linkedin: "https://www.linkedin.com/in/mohammednuhan04/",
+    email: "nuhanmohammed04@gmail.com",
   },
   contact: {
-    email: "nuhan@example.com",
+    email: "nuhanmohammed04@gmail.com",
     location: "Bangalore, Karnataka, India",
     availability: "Open to internships and collaborative projects",
   },
