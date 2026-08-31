@@ -12,28 +12,51 @@ import {
   FaGitAlt,
   FaCode,
 } from 'react-icons/fa';
-import { SiCplusplus, SiFlask, SiTensorflow, SiMysql, SiLinux, SiMongodb } from 'react-icons/si';
+import {
+  SiCplusplus,
+  SiFlask,
+  SiTensorflow,
+  SiMysql,
+  SiLinux,
+  SiMongodb,
+  SiPytorch,
+  SiScikitlearn,
+  SiVercel,
+} from 'react-icons/si';
 import '../styles/skills.css';
 
 const iconMap = {
   python: FaPython,
   javascript: FaJsSquare,
-  react: FaReact,
-  'node.js': FaNodeJs,
+  typescript: FaCode,
+  java: FaCode,
   cpp: SiCplusplus,
-  flask: SiFlask,
-  tensorflow: SiTensorflow,
-  mysql: SiMysql,
-  mongodb: SiMongodb,
-  git: FaGitAlt,
-  linux: SiLinux,
-  database: FaDatabase,
-  ai: FaBrain,
   html: FaHtml5,
   css: FaCss3Alt,
+  react: FaReact,
+  'node.js': FaNodeJs,
+  nextjs: SiFlask,
+  express: FaCode,
+  tensorflow: SiTensorflow,
+  pytorch: SiPytorch,
+  scikit: SiScikitlearn,
+  nlp: FaBrain,
+  docker: FaTerminal,
+  git: FaGitAlt,
+  linux: SiLinux,
+  vercel: SiVercel,
+  postgresql: FaDatabase,
+  mongodb: SiMongodb,
+  redis: FaDatabase,
+  mysql: SiMysql,
+  flask: SiFlask,
+  database: FaDatabase,
+  ai: FaBrain,
   terminal: FaTerminal,
   code: FaCode,
 };
+
+const CATEGORY_ORDER = ['Languages', 'Web Development', 'AI / ML', 'DevOps', 'Databases'];
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);
@@ -74,55 +97,67 @@ export default function Skills() {
   }, []);
 
   const defaultSkills = [
-    { name: 'Python', description: 'Core programming & AI/ML development', color: '#3776ab', icon: 'python' },
-    { name: 'JavaScript', description: 'Modern web development', color: '#f7df1e', icon: 'javascript' },
-    { name: 'React', description: 'Building reactive UI components', color: '#61dafb', icon: 'react' },
-    { name: 'C++', description: 'Systems programming & algorithms', color: '#00599c', icon: 'cpp' },
+    { name: 'Python', description: 'Core programming & AI/ML development', color: '#3776ab', icon: 'python', category: 'Languages' },
+    { name: 'JavaScript', description: 'Modern web development', color: '#f7df1e', icon: 'javascript', category: 'Languages' },
+    { name: 'React', description: 'Building reactive UI components', color: '#61dafb', icon: 'react', category: 'Web Development' },
+    { name: 'C++', description: 'Systems programming & algorithms', color: '#00599c', icon: 'cpp', category: 'Languages' },
+    { name: 'Docker', description: 'Containerized deployments', color: '#2496ed', icon: 'docker', category: 'DevOps' },
+    { name: 'PostgreSQL', description: 'Relational database & SQL', color: '#4169e1', icon: 'postgresql', category: 'Databases' },
   ];
 
   const displaySkills = skills.length > 0 ? skills : defaultSkills;
+
+  const grouped = CATEGORY_ORDER.map((cat) => ({
+    category: cat,
+    items: displaySkills.filter((s) => (s.category || '').trim() === cat),
+  })).filter((g) => g.items.length > 0);
+
+  const other = displaySkills.filter(
+    (s) => !CATEGORY_ORDER.includes((s.category || '').trim())
+  );
+  if (other.length > 0) grouped.push({ category: 'More', items: other });
 
   return (
     <section id="skills" className="section skills-section content-visibility-auto">
       <div className="skills-header fade-up visible">
         <h2 className="section-title">Technical Skills</h2>
         <p className="section-subtitle">
-          Technologies and tools I work with to build intelligent, scalable applications.
+          My skill set, organized by area — languages, web development, AI/ML, DevOps and databases.
         </p>
       </div>
 
       {loading ? (
-        <div className="skills-grid">
-          {[1, 2, 3, 4, 5, 6].map((n) => (
-            <div key={n} className="skill-card skeleton">
-              <div className="skeleton-tile" />
-              <div className="skeleton-line skeleton-line-short" />
-              <div className="skeleton-line skeleton-line-long" />
-              <div className="skeleton-line skeleton-line-med" />
-            </div>
-          ))}
+        <div className="skills-skeleton">
+          <div className="skeleton-block" />
+          <div className="skeleton-block" />
         </div>
       ) : (
-        <div className={`skills-grid ${visible ? 'visible' : ''}`}>
-          {displaySkills.map((skill, index) => {
-            const Icon = iconMap[(skill.icon || '').toLowerCase()] || FaCode;
-            return (
-              <div
-                key={index}
-                className={`skill-card fade-up ${visible ? 'visible' : ''}`}
-                style={{ transitionDelay: `${(index % 4) * 0.1}s` }}
-              >
-                <div
-                  className="skill-tile"
-                  style={{ backgroundColor: skill.color || 'var(--accent-blue)' }}
-                >
-                  <Icon size={30} color="#fff" />
-                </div>
-                <h3 className="skill-name">{skill.name}</h3>
-                <p className="skill-description">{skill.description}</p>
+        <div className={`skills-groups ${visible ? 'visible' : ''}`}>
+          {grouped.map((group, gi) => (
+            <div
+              key={group.category}
+              className={`skills-group fade-up ${visible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${gi * 0.08}s` }}
+            >
+              <h3 className="skills-group-title">{group.category}</h3>
+              <div className="skills-group-chiprow">
+                {group.items.map((skill, i) => {
+                  const Icon = iconMap[(skill.icon || '').toLowerCase()] || FaCode;
+                  return (
+                    <span key={i} className="skill-chip" title={skill.description || ''}>
+                      <span
+                        className="skill-chip-icon"
+                        style={{ background: (skill.color || 'var(--accent-blue)') + '22', color: skill.color || 'var(--accent-blue)' }}
+                      >
+                        <Icon size={13} />
+                      </span>
+                      <span className="skill-chip-name">{skill.name}</span>
+                    </span>
+                  );
+                })}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       )}
     </section>

@@ -13,23 +13,28 @@ async function main() {
 
   const skills = await prisma.skill.createMany({
     data: [
-      { name: "Python", icon: "python", color: "#3776AB", category: "Languages" },
-      { name: "JavaScript", icon: "javascript", color: "#F7DF1E", category: "Languages" },
-      { name: "TypeScript", icon: "typescript", color: "#3178C6", category: "Languages" },
-      { name: "Java", icon: "java", color: "#ED8B00", category: "Languages" },
-      { name: "C++", icon: "cpp", color: "#00599C", category: "Languages" },
-      { name: "React", icon: "react", color: "#61DAFB", category: "Frameworks" },
-      { name: "Next.js", icon: "nextjs", color: "#000000", category: "Frameworks" },
-      { name: "Node.js", icon: "nodejs", color: "#339933", category: "Frameworks" },
-      { name: "Express.js", icon: "express", color: "#000000", category: "Frameworks" },
-      { name: "TensorFlow", icon: "tensorflow", color: "#FF6F00", category: "Frameworks" },
-      { name: "Git", icon: "git", color: "#F05032", category: "Tools" },
-      { name: "Docker", icon: "docker", color: "#2496ED", category: "Tools" },
-      { name: "VS Code", icon: "vscode", color: "#007ACC", category: "Tools" },
-      { name: "Linux", icon: "linux", color: "#FCC624", category: "Tools" },
-      { name: "PostgreSQL", icon: "postgresql", color: "#4169E1", category: "Databases" },
-      { name: "MongoDB", icon: "mongodb", color: "#47A248", category: "Databases" },
-      { name: "Redis", icon: "redis", color: "#DC382D", category: "Databases" },
+      { name: "Java", icon: "java", color: "#ED8B00", category: "Languages", description: "Object-oriented backend programming." },
+      { name: "C++", icon: "cpp", color: "#00599C", category: "Languages", description: "Systems & performance programming." },
+      { name: "Python", icon: "python", color: "#3776AB", category: "Languages", description: "Core language for AI, ML & scripting." },
+      { name: "JavaScript", icon: "javascript", color: "#F7DF1E", category: "Languages", description: "Dynamic web & app scripting." },
+      { name: "TypeScript", icon: "typescript", color: "#3178C6", category: "Languages", description: "Type-safe JavaScript for scalability." },
+      { name: "HTML", icon: "html", color: "#E34F26", category: "Web Development", description: "Semantic page structure." },
+      { name: "CSS", icon: "css", color: "#1572B6", category: "Web Development", description: "Responsive styling & animations." },
+      { name: "React", icon: "react", color: "#61DAFB", category: "Web Development", description: "Component-based UI development." },
+      { name: "Next.js", icon: "nextjs", color: "#000000", category: "Web Development", description: "React framework for full-stack apps." },
+      { name: "Node.js", icon: "nodejs", color: "#339933", category: "Web Development", description: "Server-side JavaScript runtime." },
+      { name: "Express.js", icon: "express", color: "#000000", category: "Web Development", description: "Lightweight Node.js web framework." },
+      { name: "TensorFlow", icon: "tensorflow", color: "#FF6F00", category: "AI / ML", description: "Building & training ML models." },
+      { name: "PyTorch", icon: "pytorch", color: "#EE4C2C", category: "AI / ML", description: "Deep learning & neural networks." },
+      { name: "Scikit-learn", icon: "scikit", color: "#F7931E", category: "AI / ML", description: "Classic machine learning algorithms." },
+      { name: "NLP", icon: "nlp", color: "#00d4aa", category: "AI / ML", description: "Natural language processing systems." },
+      { name: "Docker", icon: "docker", color: "#2496ED", category: "DevOps", description: "Containerized application deployments." },
+      { name: "Git", icon: "git", color: "#F05032", category: "DevOps", description: "Version control & collaboration." },
+      { name: "Linux", icon: "linux", color: "#FCC624", category: "DevOps", description: "Server & CLI environment work." },
+      { name: "Vercel", icon: "vercel", color: "#ffffff", category: "DevOps", description: "Frontend & serverless deployment." },
+      { name: "PostgreSQL", icon: "postgresql", color: "#4169E1", category: "Databases", description: "Relational database & SQL." },
+      { name: "MongoDB", icon: "mongodb", color: "#47A248", category: "Databases", description: "NoSQL document database." },
+      { name: "Redis", icon: "redis", color: "#DC382D", category: "Databases", description: "In-memory caching & queues." },
     ],
   });
   console.log(`Created ${skills.count} skills`);
@@ -61,8 +66,8 @@ async function main() {
       {
         title: "RETAIN — Terminal-Based AI Agent",
         description:
-          "A lightweight terminal-based AI agent built in Python (fully hand-coded, no AI used). It provides an interactive CLI to chat with an AI model and perform real tasks via 7 tools: run shell commands, read/write/edit files, list & create directories, and search across files — all with a Rich-powered terminal interface.",
-        tags: ["Python", "OpenAI SDK", "Rich", "OpenRouter", "CLI"],
+          "A lightweight terminal-based AI agent built in Python (fully hand-coded, no AI used). It provides an interactive CLI to chat with an AI model and perform real tasks via 7 tools: run shell commands, read/write/edit files, list & create directories, and search across files — all with a Rich-powered terminal interface. Open source and publicly deployed for anyone to try.",
+        tags: ["Python", "OpenAI SDK", "Rich", "OpenRouter", "CLI", "Open Source"],
         githubUrl: "https://github.com/mohammednuhan/Retain",
         liveUrl: null,
         imageUrl: "/images/retain-architecture.svg",
@@ -83,10 +88,10 @@ async function main() {
       {
         title: "Luxury Wedding Invitation — PWA",
         description:
-          "A premium, interactive digital wedding invitation built as a Progressive Web App (PWA) using AI-assisted coding (Cline). Opens with a magical loading sequence (Bismillah → couple names → 'Open Invitation'), then reveals a scratch-to-reveal coin, animated story timeline, event cards (Nikah, Reception, Haldi, Mehendi, Walima), live countdown, floating WhatsApp/share buttons, and a secure admin panel to edit everything — built with React, Express & PostgreSQL.",
-        tags: ["React", "Express", "PostgreSQL", "GSAP", "Tailwind", "PWA"],
+          "A premium, interactive digital wedding invitation built as a Progressive Web App (PWA) using AI-assisted coding. Opens with a magical loading sequence (Bismillah → couple names → 'Open Invitation'), then reveals a scratch-to-reveal coin, animated story timeline, event cards (Nikah, Reception, Haldi, Mehendi, Walima), live countdown, floating WhatsApp/share buttons, and a secure admin panel. Built with React, Express & PostgreSQL and deployed live — guests use the link on their phones.",
+        tags: ["React", "Express", "PostgreSQL", "GSAP", "Tailwind", "PWA", "Vercel"],
         githubUrl: "https://github.com/mohammednuhan/invitation-card",
-        liveUrl: null,
+        liveUrl: "https://weddingcelebrationcard.vercel.app/",
         imageUrl: "/images/invitation-architecture.svg",
         featured: true,
         order: 5,
@@ -187,6 +192,8 @@ async function main() {
         description:
           "Active football player with experience in inter-college tournaments. Developed teamwork, strategic thinking, and physical endurance through the sport.",
         icon: "football",
+        level: 85,
+        levelLabel: "Club-Level Player",
         order: 1,
       },
       {
@@ -195,6 +202,8 @@ async function main() {
         description:
           "Competed in 1500m distance events at school and college level. Built mental toughness, stamina, and the ability to perform under pressure.",
         icon: "running",
+        level: 78,
+        levelLabel: "District Competitor",
         order: 2,
       },
       {
@@ -203,6 +212,8 @@ async function main() {
         description:
           "Participated in relay races, learning the value of trust, timing, and seamless handoffs. Contributed to team victories through consistent performance.",
         icon: "relay",
+        level: 82,
+        levelLabel: "Relay Specialist",
         order: 3,
       },
     ],

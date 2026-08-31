@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { FaUsers, FaTrophy, FaMedal, FaBullseye, FaChartLine, FaFire } from 'react-icons/fa';
+import {
+  FaUsers,
+  FaTrophy,
+  FaMedal,
+  FaBullseye,
+  FaChartLine,
+  FaFire,
+  FaFutbol,
+  FaRunning,
+  FaFlagCheckered,
+} from 'react-icons/fa';
 import '../styles/beyond.css';
 
 const traitIcons = {
@@ -7,6 +17,12 @@ const traitIcons = {
   Discipline: FaFire,
   Teamwork: FaUsers,
   'Competitive Mindset': FaTrophy,
+};
+
+const sportIcons = {
+  football: FaFutbol,
+  running: FaRunning,
+  relay: FaFlagCheckered,
 };
 
 const gradientMap = {
@@ -59,15 +75,15 @@ export default function Beyond() {
   }, []);
 
   const defaultTraits = [
-    { name: 'Leadership', description: 'Leading teams and projects with vision and accountability.' },
-    { name: 'Discipline', description: 'Consistent daily practice and dependable work ethic.' },
-    { name: 'Teamwork', description: 'Collaborating effectively to achieve shared goals.' },
-    { name: 'Competitive Mindset', description: 'Pushing boundaries and continuously improving.' },
+    { name: 'Leadership', description: 'Leading teams and projects with vision and accountability.', icon: 'Leadership' },
+    { name: 'Discipline', description: 'Consistent daily practice and dependable work ethic.', icon: 'Discipline' },
+    { name: 'Teamwork', description: 'Collaborating effectively to achieve shared goals.', icon: 'Teamwork' },
+    { name: 'Competitive Mindset', description: 'Pushing boundaries and continuously improving.', icon: 'Competitive Mindset' },
   ];
 
   const defaultSports = [
-    { title: 'Team Member', achievement: 'Represented university in sports', year: '2023' },
-    { title: 'Participant', achievement: 'Inter-university competition', year: '2024' },
+    { title: 'Football', tag: 'Team Sport', achievement: 'Active player in inter-college tournaments', year: '2023', level: 85, levelLabel: 'Club-Level Player', icon: 'football' },
+    { title: '1500m Race', tag: 'Track & Field', achievement: 'Competed in distance events', year: '2024', level: 78, levelLabel: 'District Competitor', icon: 'running' },
   ];
 
   const displayTraits = traits.length > 0 ? traits : defaultTraits;
@@ -84,16 +100,19 @@ export default function Beyond() {
 
       <div className="beyond-traits">
         {displayTraits.map((trait, index) => {
-          const Icon = traitIcons[trait.name] || FaChartLine;
-          const bg = gradientMap[trait.name] || 'var(--gradient-primary)';
+          const Icon = traitIcons[trait.name] || traitIcons[trait.icon] || FaChartLine;
+          const bg = gradientMap[trait.name] || gradientMap[trait.icon] || 'var(--gradient-primary)';
           return (
             <div
               key={index}
               className={`beyond-trait fade-up ${visible ? 'visible' : ''}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="beyond-trait-icon" style={{ background: bg }}>
-                <Icon size={22} color="#fff" />
+              <div className="beyond-trait-top">
+                <div className="beyond-trait-icon" style={{ background: bg }}>
+                  <Icon size={20} color="#fff" />
+                </div>
+                <span className="beyond-trait-num">0{index + 1}</span>
               </div>
               <h3 className="beyond-trait-name">{trait.name}</h3>
               <p className="beyond-trait-desc">{trait.description}</p>
@@ -105,21 +124,39 @@ export default function Beyond() {
       <div className="beyond-sports">
         <h3 className={`beyond-sports-title ${visible ? 'visible' : 'fade-up'}`}>
           <FaMedal size={20} color="var(--accent-orange)" />
-          Sports Achievements
+          Sports & Playing Level
         </h3>
-        <div className="beyond-timeline">
-          {displaySports.map((sport, index) => (
-            <div key={index} className={`beyond-timeline-item ${visible ? 'visible' : 'fade-up'}`}>
-              <div className="beyond-timeline-dot" />
-              <div className="beyond-timeline-content">
-                <div className="beyond-timeline-top">
-                  <span className="beyond-timeline-title">{sport.title || sport.event}</span>
-                  <span className="beyond-timeline-year">{sport.year}</span>
+        <div className="beyond-sports-grid">
+          {displaySports.map((sport, index) => {
+            const Icon = sportIcons[sport.icon] || sportIcons[sport.tag] || FaRunning;
+            const level = Math.min(100, Math.max(0, Number(sport.level) || 0));
+            return (
+              <div key={index} className={`beyond-sport fade-up ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
+                <div className="beyond-sport-head">
+                  <div className="beyond-sport-icon">
+                    <Icon size={18} />
+                  </div>
+                  <div className="beyond-sport-meta">
+                    <h4 className="beyond-sport-title">{sport.title}</h4>
+                    <span className="beyond-sport-tag">{sport.tag}</span>
+                  </div>
+                  <span className="beyond-sport-level">{level}</span>
                 </div>
-                <p className="beyond-timeline-desc">{sport.achievement || sport.description}</p>
+
+                {sport.levelLabel && (
+                  <span className="beyond-sport-badge">{sport.levelLabel}</span>
+                )}
+
+                <div className="beyond-sport-bar">
+                  <span className="beyond-sport-bar-fill" style={{ width: `${level}%` }} />
+                </div>
+
+                <p className="beyond-sport-desc">
+                  {sport.description || sport.achievement || sport.year}
+                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

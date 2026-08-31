@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaRobot, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaRobot, FaExternalLinkAlt, FaRocket } from 'react-icons/fa';
 import '../styles/projects.css';
 
 export default function Projects() {
@@ -62,30 +62,44 @@ export default function Projects() {
 
   const display = projects.length > 0 ? projects : defaultProjects;
 
+  const openGithub = (e, url) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="projects" className="section projects-section content-visibility-auto">
       <div className="projects-header fade-up visible">
         <h2 className="section-title gradient-text">Featured Projects</h2>
         <p className="section-subtitle">
           A collection of projects I've built — from AI systems to full-stack applications.
-          Tap any project to view it on GitHub.
+          Some are deployed live and open source. Tap a card or a link to explore.
         </p>
       </div>
 
       <div className="projects-grid">
         {display.map((project, index) => {
           const githubUrl = project.githubUrl || project.github || '#';
+          const liveUrl = project.liveUrl || null;
           const imageUrl = project.imageUrl || project.image || null;
           const tags = project.tags || project.tech || [];
+          const targetUrl = liveUrl || githubUrl;
           return (
-            <a
+            <div
               key={index}
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className={`project-card fade-up ${visible ? 'visible' : ''}`}
               style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
-              aria-label={`View ${project.title} on GitHub`}
+              role="link"
+              tabIndex={0}
+              onClick={() => window.open(targetUrl, '_blank', 'noopener,noreferrer')}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                }
+              }}
+              aria-label={`Open ${project.title}`}
             >
               <div className="project-image-area">
                 <div className="project-mesh" />
@@ -103,9 +117,15 @@ export default function Projects() {
                     style={{ background: `linear-gradient(135deg, hsl(${(index * 60) % 360}, 70%, 55%), hsl(${(index * 60 + 60) % 360}, 70%, 45%))` }}
                   />
                 )}
+                {liveUrl && (
+                  <div className="project-live-badge">
+                    <FaRocket size={11} />
+                    <span>Live</span>
+                  </div>
+                )}
                 <div className="project-open-badge">
                   <FaExternalLinkAlt size={12} />
-                  <span>View on GitHub</span>
+                  <span>{liveUrl ? 'Open Live Site' : 'View on GitHub'}</span>
                 </div>
               </div>
 
@@ -120,13 +140,25 @@ export default function Projects() {
                 </div>
 
                 <div className="project-links">
-                  <span className="project-link">
+                  <button
+                    className="project-link"
+                    onClick={(e) => openGithub(e, githubUrl)}
+                  >
                     <FaGithub size={16} />
-                    View Repository
-                  </span>
+                    GitHub
+                  </button>
+                  {liveUrl && (
+                    <button
+                      className="project-link project-link-live"
+                      onClick={(e) => openGithub(e, liveUrl)}
+                    >
+                      <FaRocket size={16} />
+                      Live Site
+                    </button>
+                  )}
                 </div>
               </div>
-            </a>
+            </div>
           );
         })}
       </div>
