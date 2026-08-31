@@ -11,7 +11,7 @@
     "db:seed": "cd backend && node prisma/seed.js",
     "db:studio": "cd backend && npx prisma studio",
     "db:generate": "cd backend && npx prisma generate",
-    "build": "cd frontend && npm run build",
+    "build": "npm install --prefix frontend && cd frontend && npm run build",
     "start": "node index.js",
     "postinstall": "prisma generate --schema backend/prisma/schema.prisma"
   },
