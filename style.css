@@ -16,7 +16,7 @@
     --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
     --gradient-secondary: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
 
-    --font-heading: 'Outfit', sans-serif;
+    --font-heading: 'Sora', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --max-width: 1200px;
@@ -84,6 +84,9 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* Skip rendering for off-screen sections until near viewport */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
 }
 
 /* ================================
@@ -98,8 +101,9 @@ section {
     background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    will-change: background, box-shadow;
 }
 
 .nav-container {
@@ -113,12 +117,25 @@ section {
 }
 
 .logo {
-    font-size: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.6rem;
     font-weight: 800;
     color: var(--text-main);
+    letter-spacing: 0.5px;
 }
 
-.logo span {
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gradient-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.logo-accent {
     color: var(--accent-blue);
 }
 
@@ -206,6 +223,7 @@ section {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
 }
 
 .fade-up.visible {
@@ -277,6 +295,64 @@ section {
     text-align: center;
     max-width: 800px;
     z-index: 2;
+}
+
+.hero-logo {
+    display: inline-flex;
+    margin-bottom: 30px;
+}
+
+.hero-logo-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid transparent;
+    background: var(--gradient-primary) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 4px;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.35);
+}
+
+.hero-socials {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: var(--text-main);
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.social-icon.resume-icon {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: #fff;
+}
+
+.social-icon.resume-icon:hover {
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
 }
 
 .hero-title {
@@ -666,9 +742,27 @@ section {
     z-index: 1;
 }
 
-.skill-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+.skill-logo {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 18px;
+    border-radius: 16px;
+    background: var(--skill-bg, var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #0a0a0a;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease;
+}
+
+.skill-logo i {
+    line-height: 1;
+}
+
+.skill-card:hover .skill-logo {
+    transform: scale(1.08) rotate(-3deg);
 }
 
 .skill-card h3 {

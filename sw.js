@@ -1,11 +1,14 @@
-const CACHE_NAME = 'mn-portfolio-v1';
+const CACHE_NAME = 'mn-portfolio-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/style.css',
     '/script.js',
     '/profile.jpeg',
-    '/manifest.json'
+    '/manifest.json',
+    '/resume.pdf',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+    'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css'
 ];
 
 // Install Event - Pre-cache critical assets
@@ -35,29 +38,38 @@ self.addEventListener('activate', event => {
     self.clients.claim();
 });
 
-// Fetch Event - Stale-While-Revalidate Strategy
+// Fetch Event - Cache-First with Network fallback for a fast, resilient experience
 self.addEventListener('fetch', event => {
+    // Skip non-GET requests
+    if (event.request.method !== 'GET') return;
+
+    // Cache-first: serve cached copy instantly, update in background
     event.respondWith(
         caches.match(event.request).then(cachedResponse => {
-            const fetchPromise = fetch(event.request).then(networkResponse => {
-                // Check if we received a valid response
-                if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            if (cachedResponse) {
+                // Background update
+                const fetchPromise = fetch(event.request).then(networkResponse => {
+                    if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
+                        const responseToCache = networkResponse.clone();
+                        caches.open(CACHE_NAME).then(cache => {
+                            cache.put(event.request, responseToCache);
+                        });
+                    }
                     return networkResponse;
-                }
-
-                // Clone the response and save it to cache
-                const responseToCache = networkResponse.clone();
-                caches.open(CACHE_NAME).then(cache => {
-                    cache.put(event.request, responseToCache);
-                });
-
-                return networkResponse;
-            }).catch(() => {
-                // Return cached version if network fails
+                }).catch(() => cachedResponse);
                 return cachedResponse;
-            });
+            }
 
-            return cachedResponse || fetchPromise;
+            // Nothing cached — fetch from network and cache it
+            return fetch(event.request).then(networkResponse => {
+                if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
+                    const responseToCache = networkResponse.clone();
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, responseToCache);
+                    });
+                }
+                return networkResponse;
+            }).catch(() => cachedResponse);
         })
     );
 });

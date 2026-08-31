@@ -8,23 +8,41 @@
     <meta name="description"
         content="Personal portfolio of Mohammed Nuhan, AI & Software Engineering Student with skills in C++, DSA, Web Dev, and AI.">
 
-    <!-- Google Fonts -->
+    <!-- Preconnect & DNS Prefetch for faster third-party resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Devicon -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-    <!-- Custom CSS -->
+    <!-- Preload critical first-paint stylesheet (custom CSS) -->
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Self-hosted-critical fonts first; Google Fonts and icons deferred to avoid render blocking -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- FontAwesome for Icons (deferred - non-critical) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <!-- Devicon (deferred - non-critical) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    </noscript>
+
     <!-- PWA Manifest & Meta Tags -->
+     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
     <link rel="apple-touch-icon" href="profile.jpeg">
@@ -34,13 +52,17 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo">NUHAN<span></span></a>
+            <a href="#hero" class="logo">
+                <img src="profile.jpeg" alt="MN Logo" class="logo-img">
+                <span class="logo-text">NUHAN<span class="logo-accent">.</span></span>
+            </a>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#beyond">Beyond</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -51,6 +73,9 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content fade-in">
+            <div class="hero-logo">
+                <img src="profile.jpeg" alt="Mohammed Nuhan" class="hero-logo-img">
+            </div>
             <h1 class="hero-title">Mohammed <span class="gradient-text">Nuhan</span></h1>
             <h2 class="hero-subtitle">I'm a <span class="typing-text"></span><span class="cursor">&nbsp;</span></h2>
             <p class="hero-desc">Fourth-year AI/ML student focused on building intelligent systems, scalable software,
@@ -59,6 +84,22 @@
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+            <div class="hero-socials">
+                <a href="https://github.com/mohammednuhan" target="_blank" rel="noopener" class="social-icon"
+                    aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mohammed-nuhan04-594489333" target="_blank" rel="noopener"
+                    class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:nuhanmohammed04@gmail.com" class="social-icon" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="resume.pdf" target="_blank" rel="noopener" class="social-icon resume-icon" aria-label="Resume">
+                    <i class="fas fa-file-alt"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -71,7 +112,7 @@
                 <div class="about-image">
                     <div class="image-wrapper">
                         <!-- Using profile.jpeg from the directory -->
-                        <img src="profile.jpeg" alt="Mohammed Nuhan">
+                        <img src="profile.jpeg" alt="Mohammed Nuhan" decoding="async" fetchpriority="low">
                     </div>
                 </div>
                 <div class="about-text">
@@ -110,89 +151,167 @@
 
             <div class="skills-grid">
                 <div class="skill-card">
-                    <i class="fa-brands fa-cuttlefish skill-icon" style="color: #659ad2;"></i>
+                    <div class="skill-logo" style="--skill-bg: #659ad2;"><i class="fa-brands fa-cuttlefish"></i></div>
                     <h3>C++ & DSA</h3>
                     <p>Strong problem-solving fundamentals</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fa-brands fa-js skill-icon" style="color: #f7df1e;"></i>
+                    <div class="skill-logo" style="--skill-bg: #f7df1e;"><i class="fa-brands fa-js"></i></div>
                     <h3>JavaScript</h3>
                     <p>Modern ES6+ syntax & DOM manipulation</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fa-brands fa-html5 skill-icon" style="color: #e34f26;"></i>
+                    <div class="skill-logo" style="--skill-bg: #e34f26;"><i class="fa-brands fa-html5"></i></div>
                     <h3>HTML5</h3>
                     <p>Semantic markup & SEO best practices</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fa-brands fa-css3-alt skill-icon" style="color: #1572b6;"></i>
+                    <div class="skill-logo" style="--skill-bg: #1572b6;"><i class="fa-brands fa-css3-alt"></i></div>
                     <h3>CSS3</h3>
                     <p>Responsive design, Flexbox & Grid</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fa-brands fa-react skill-icon" style="color: #61dafb;"></i>
+                    <div class="skill-logo" style="--skill-bg: #61dafb;"><i class="fa-brands fa-react"></i></div>
                     <h3>Basic React</h3>
                     <p>Component-based architecture</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fa-brands fa-git-alt skill-icon" style="color: #f05032;"></i>
+                    <div class="skill-logo" style="--skill-bg: #f05032;"><i class="fa-brands fa-git-alt"></i></div>
                     <h3>Git & GitHub</h3>
                     <p>Version control & collaboration</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-robot skill-icon gradient-text"></i>
+                    <div class="skill-logo" style="--skill-bg: #8b5cf6;"><i class="fas fa-robot"></i></div>
                     <h3>AI Fundamentals</h3>
                     <p>Concepts & Agent architecture</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-typescript-plain colored skill-icon"></i>
+                    <div class="skill-logo" style="--skill-bg: #3178c6;"><i class="devicon-typescript-plain"></i></div>
                     <h3>TypeScript</h3>
                     <p>Strongly typed JavaScript</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-vercel-original skill-icon" style="color: #ffffff;"></i>
+                    <div class="skill-logo" style="--skill-bg: #eaeaea;"><i class="devicon-vercel-original"></i></div>
                     <h3>Vercel</h3>
                     <p>Deployment & Hosting</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-angularjs-plain colored skill-icon"></i>
+                    <div class="skill-logo" style="--skill-bg: #dd0031;"><i class="devicon-angularjs-plain"></i></div>
                     <h3>AngularJS</h3>
                     <p>Frontend framework</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-nextjs-plain skill-icon" style="color: #ffffff;"></i>
+                    <div class="skill-logo" style="--skill-bg: #eaeaea;"><i class="devicon-nextjs-plain"></i></div>
                     <h3>Next.js</h3>
                     <p>React framework for production</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-react-original colored skill-icon"></i>
+                    <div class="skill-logo" style="--skill-bg: #61dafb;"><i class="devicon-react-original"></i></div>
                     <h3>React.js</h3>
                     <p>Component-based UI library</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-prisma-original skill-icon" style="color: #ffffff;"></i>
+                    <div class="skill-logo" style="--skill-bg: #8b5cf6;"><i class="devicon-prisma-original"></i></div>
                     <h3>Prisma ORM</h3>
                     <p>Modern database toolkit</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-postgresql-plain colored skill-icon"></i>
+                    <div class="skill-logo" style="--skill-bg: #4169e1;"><i class="devicon-postgresql-plain"></i></div>
                     <h3>PostgreSQL</h3>
                     <p>Relational database</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-mongodb-plain colored skill-icon"></i>
+                    <div class="skill-logo" style="--skill-bg: #4db33d;"><i class="devicon-mongodb-plain"></i></div>
                     <h3>MongoDB</h3>
                     <p>NoSQL database</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-express-original skill-icon" style="color: #ffffff;"></i>
+                    <div class="skill-logo" style="--skill-bg: #6da55f;"><i class="devicon-express-original"></i></div>
                     <h3>Express.js</h3>
                     <p>Fast, unopinionated web framework</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-nodejs-plain colored skill-icon"></i>
+                    <div class="skill-logo" style="--skill-bg: #339933;"><i class="devicon-nodejs-plain colored"></i></div>
                     <h3>Node.js</h3>
                     <p>JavaScript runtime environment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="section-container fade-up">
+            <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+            <p class="section-subtitle">My academic journey from Pre-University to Engineering.</p>
+
+            <div class="education-timeline">
+                <div class="education-card">
+                    <div class="education-header">
+                        <div class="degree-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="degree-info">
+                            <h3>Bachelor of Technology (B.Tech)</h3>
+                            <p class="degree-field">Artificial Intelligence & Machine Learning</p>
+                        </div>
+                    </div>
+                    <div class="education-body">
+                        <div class="edu-detail">
+                            <span class="label">Institution</span>
+                            <span class="value">Engineering College</span>
+                        </div>
+                        <div class="edu-detail">
+                            <span class="label">Status</span>
+                            <span class="value">Fourth Year (Pursuing)</span>
+                        </div>
+                        <div class="edu-detail">
+                            <span class="label">Focus</span>
+                            <span class="value">AI, DSA, Full Stack Development</span>
+                        </div>
+                        <div class="relevant-coursework">
+                            <h4>Relevant Coursework</h4>
+                            <div class="coursework-tags">
+                                <span>Machine Learning</span>
+                                <span>Data Structures</span>
+                                <span>Algorithms</span>
+                                <span>DBMS</span>
+                                <span>Operating Systems</span>
+                                <span>Web Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-header">
+                        <div class="degree-icon"><i class="fas fa-school"></i></div>
+                        <div class="degree-info">
+                            <h3>Pre-University (PUC)</h3>
+                            <p class="degree-field">Science — PCMB</p>
+                        </div>
+                    </div>
+                    <div class="education-body">
+                        <div class="edu-detail">
+                            <span class="label">Institution</span>
+                            <span class="value">Pre-University College</span>
+                        </div>
+                        <div class="edu-detail">
+                            <span class="label">Duration</span>
+                            <span class="value">2 Years</span>
+                        </div>
+                        <div class="edu-detail">
+                            <span class="label">Stream</span>
+                            <span class="value">Physics, Chemistry, Mathematics, Biology</span>
+                        </div>
+                        <div class="relevant-coursework">
+                            <h4>Key Learnings</h4>
+                            <div class="coursework-tags">
+                                <span>Mathematics</span>
+                                <span>Physics</span>
+                                <span>Analytical Skills</span>
+                                <span>Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -351,8 +470,10 @@
 
             <!-- Using beyond keyboard images from directory -->
             <div class="beyond-images" style="margin-top: 6rem;">
-                <img src="beyond keyboard -2.jpeg" alt="Leadership & Teamwork" class="b-img">
-                <img src="beyond keyboard-.jpeg" alt="Discipline & Competition" class="b-img">
+                <img src="beyond keyboard -2.jpeg" alt="Leadership & Teamwork" class="b-img" loading="lazy"
+                    decoding="async">
+                <img src="beyond keyboard-.jpeg" alt="Discipline & Competition" class="b-img" loading="lazy"
+                    decoding="async">
             </div>
         </div>
     </section>
@@ -413,14 +534,17 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <a href="#hero" class="logo">MN.<span>dev</span></a>
+            <a href="#hero" class="logo">
+                <img src="profile.jpeg" alt="MN Logo" class="logo-img">
+                <span class="logo-text">MN.<span class="logo-accent">dev</span></span>
+            </a>
             <p>Designed and Built by Mohammed Nuhan</p>
             <p class="copyright">&copy; 2026 Mohammed Nuhan. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <!-- Custom JS (deferred) -->
+    <script src="script.js" defer></script>
 
     <!-- PWA Service Worker Registration -->
     <script>

@@ -29,38 +29,50 @@ navLinksItems.forEach(link => {
     });
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+// Navbar background on scroll + Active Nav Highlight
+// Coalesced into a single rAF-throttled scroll handler for performance
+const sections = Array.from(document.querySelectorAll('section[id]'));
+
+function handleScroll() {
+    const y = window.scrollY;
+
+    // Navbar background
+    if (y > 50) {
         navbar.style.background = 'rgba(10, 10, 10, 0.95)';
         navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
     } else {
         navbar.style.background = 'rgba(10, 10, 10, 0.8)';
         navbar.style.boxShadow = 'none';
     }
-});
 
-// Active Nav Highlight on Scroll
-const sections = document.querySelectorAll('section[id]');
-
-function highlightNav() {
-    const scrollY = window.scrollY + 120;
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-        if (navLink) {
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                navLink.classList.add('active');
-            } else {
-                navLink.classList.remove('active');
-            }
+    // Active nav highlight
+    const scrollY = y + 120;
+    let currentId = '';
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollY >= top && scrollY < top + height) {
+            currentId = section.getAttribute('id');
+            break;
         }
+    }
+    navLinksItems.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
     });
 }
 
-window.addEventListener('scroll', highlightNav);
+// Throttle scroll via requestAnimationFrame — runs at most once per frame
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+            handleScroll();
+            scrollTicking = false;
+        });
+    }
+}, { passive: true });
 
 // Typing Effect
 const typedTextSpan = document.querySelector(".typing-text");
@@ -104,20 +116,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Scroll Reveal Animation (Intersection Observer)
+// Unobserve after revealed to stop unnecessary observation work
 const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.15
 };
 
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 document.querySelectorAll('.fade-up').forEach(element => {
-    observer.observe(element);
+    revealObserver.observe(element);
 });
