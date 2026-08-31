@@ -2,10 +2,10 @@
   "name": "nuhan-portfolio-backend",
   "version": "1.0.0",
   "description": "Backend API for Nuhan's Portfolio",
-  "main": "src/index.js",
+  "main": "../index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon ../index.js",
+    "start": "node ../index.js",
     "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
