@@ -3,7 +3,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/src/index.js",
+      "src": "api/index.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": ["backend/prisma/**"]
@@ -20,7 +20,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/src/index.js"
+      "dest": "api/index.js"
     },
     {
       "handle": "filesystem"
