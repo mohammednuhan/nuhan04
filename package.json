@@ -11,7 +11,8 @@
     "db:seed": "cd backend && node prisma/seed.js",
     "db:studio": "cd backend && npx prisma studio",
     "build": "cd frontend && npm run build",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "postinstall": "cd frontend && npm install"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
