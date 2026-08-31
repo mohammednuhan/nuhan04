@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaRobot, FaCode, FaUserGraduate, FaProjectDiagram, FaRocket, FaLightbulb } from 'react-icons/fa';
+import { FaRobot, FaCode, FaUserGraduate, FaProjectDiagram, FaLightbulb } from 'react-icons/fa';
 import '../styles/about.css';
 
 function useCountUp(target, inView, duration = 1200) {

@@ -108,11 +108,12 @@ async function main() {
   const education = await prisma.education.createMany({
     data: [
       {
-        degree: "B.Tech",
-        institution: "Presidency University",
-        field: "Computer Science - AI & Machine Learning",
+        degree: "BE",
+        institution: "East West Institute of Technology",
+        field: "Artificial Intelligence & Machine Learning",
         status: "Pursuing",
         focus: "Artificial Intelligence, Machine Learning, Deep Learning, NLP",
+        score: "CGPA: 8",
         coursework: [
           "Data Structures & Algorithms",
           "Machine Learning",
@@ -134,10 +135,11 @@ async function main() {
       },
       {
         degree: "PUC",
-        institution: "Science Stream",
-        field: "Physics, Chemistry, Mathematics, Computer Science",
+        institution: "St Joseph Chikmagalur",
+        field: "Science - Physics, Chemistry, Mathematics, Computer Science",
         status: "Completed",
         focus: "Strong fundamentals in Mathematics and Computer Science",
+        score: "Percentage: 80%",
         coursework: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
         keyLearnings: [
           "Built strong analytical and mathematical foundations",

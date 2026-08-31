@@ -47,4 +47,8 @@ if (require.main === module) {
   });
 }
 
-module.exports = { app, prisma };
+// Express app export so Vercel's @vercel/node can serve the API as a serverless
+// function. `prisma` is attached for reuse if needed.
+app.prisma = prisma;
+
+module.exports = app;

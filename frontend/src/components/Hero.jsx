@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
 import '../styles/hero.css';
 
 const titles = [
@@ -99,9 +99,6 @@ export default function Hero() {
           </a>
           <a href="mailto:nuhanmohammed04@gmail.com" className="hero-social-icon" aria-label="Email">
             <FaEnvelope size={20} />
-          </a>
-          <a href="#" className="hero-social-icon" aria-label="Resume">
-            <FaFileAlt size={20} />
           </a>
         </div>
       </div>

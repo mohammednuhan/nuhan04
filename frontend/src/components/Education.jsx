@@ -39,13 +39,24 @@ export default function Education() {
 
   const defaultEducation = [
     {
-      degree: 'BE in Artificial Intelligence and Machine Learning',
-      institution: 'VTU University',
-      field: 'AI & Software Engineering',
-      status: 'Fourth Year',
-      focus: 'Artificial Intelligence, Software Engineering',
-      coursework: ['Machine Learning', 'Software Architecture'],
+      degree: 'BE',
+      institution: 'East West Institute of Technology',
+      field: 'Artificial Intelligence & Machine Learning',
+      status: 'Pursuing',
+      focus: 'Artificial Intelligence, Machine Learning, Deep Learning, NLP',
+      score: 'CGPA: 8',
+      coursework: ['Machine Learning', 'Deep Learning', 'NLP', 'Data Structures & Algorithms'],
       keyLearnings: ['Agentic AI systems', 'Scalable web applications'],
+    },
+    {
+      degree: 'PUC',
+      institution: 'St Joseph Chikmagalur',
+      field: 'Science - Physics, Chemistry, Mathematics, Computer Science',
+      status: 'Completed',
+      focus: 'Strong fundamentals in Mathematics and Computer Science',
+      score: 'Percentage: 80%',
+      coursework: ['Physics', 'Chemistry', 'Mathematics', 'Computer Science'],
+      keyLearnings: ['Strong analytical and mathematical foundations'],
     },
   ];
 
@@ -84,6 +95,7 @@ export default function Education() {
 
                 <div className="education-meta">
                   <p><strong>Focus:</strong> {item.focus}</p>
+                  {item.score && <p><strong>Score:</strong> {item.score}</p>}
                 </div>
 
                 <div className="education-tags">

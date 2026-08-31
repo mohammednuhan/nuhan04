@@ -39,6 +39,7 @@ model Education {
   field          String
   status         String
   focus          String?
+  score          String?
   coursework     String[]
   keyLearnings   String[]
   icon           String    @default("graduation-cap")

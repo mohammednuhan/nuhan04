@@ -15,6 +15,7 @@ import {
 import {
   SiCplusplus,
   SiFlask,
+  SiNextdotjs,
   SiTensorflow,
   SiMysql,
   SiLinux,
@@ -36,7 +37,7 @@ const iconMap = {
   css: FaCss3Alt,
   react: FaReact,
   'node.js': FaNodeJs,
-  nextjs: SiFlask,
+  nextjs: SiNextdotjs,
   express: FaCode,
   tensorflow: SiTensorflow,
   pytorch: SiPytorch,
