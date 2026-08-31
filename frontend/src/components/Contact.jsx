@@ -44,7 +44,7 @@ export default function Contact() {
             <div>
               <span className="contact-item-label">Email</span>
               <a href="mailto:nuhan@example.com" className="contact-item-value">
-                nuhan@example.com
+                nuhanmohammed04@gmail.com
               </a>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function Contact() {
             </div>
             <div>
               <span className="contact-item-label">Location</span>
-              <span className="contact-item-value">Sri Lanka</span>
+              <span className="contact-item-value">Banglore</span>
             </div>
           </div>
         </div>

@@ -37,26 +37,37 @@ async function main() {
   const projects = await prisma.project.createMany({
     data: [
       {
+        title: "CEX — Centralized Cryptocurrency Exchange",
+        description:
+          "A backend system that simulates the core mechanics of a centralized cryptocurrency exchange — JWT authentication, wallet deposit/withdrawal, buy & sell orders with a price-prioritized order book, and foundational order-matching logic. Built to understand real exchange architecture using PostgreSQL for persistent storage.",
+        tags: ["Node.js", "Express", "Prisma", "PostgreSQL", "JWT"],
+        githubUrl: "https://github.com/mohammednuhan/stock-app",
+        liveUrl: null,
+        imageUrl: "/images/cex-architecture.svg",
+        featured: true,
+        order: 1,
+      },
+      {
         title: "AI Agent Prototype",
         description:
           "An intelligent AI agent built with Python and TensorFlow that can perform autonomous tasks, learn from interactions, and adapt its behavior. Features natural language processing, decision-making algorithms, and a clean web interface for monitoring agent performance.",
         tags: ["Python", "TensorFlow", "NLP", "FastAPI", "React"],
-        githubUrl: "https://github.com/nuhan/ai-agent",
+        githubUrl: "https://github.com/mohammednuhan",
         liveUrl: null,
         imageUrl: null,
         featured: true,
-        order: 1,
+        order: 2,
       },
       {
         title: "DSA Visualizer",
         description:
           "An interactive web application that visualizes data structures and algorithms in real-time. Users can step through sorting algorithms, graph traversals, and tree operations with animated visualizations. Built to help students understand complex DSA concepts through hands-on exploration.",
-        tags: ["React", "TypeScript", "D3.js", "Node.js", "Tailwind CSS"],
-        githubUrl: "https://github.com/nuhan/dsa-visualizer",
-        liveUrl: "https://dsa-visualizer.vercel.app",
+        tags: ["React", "TypeScript", "D3.js", "Node.js"],
+        githubUrl: "https://github.com/mohammednuhan",
+        liveUrl: null,
         imageUrl: null,
         featured: true,
-        order: 2,
+        order: 3,
       },
     ],
   });

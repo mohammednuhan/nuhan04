@@ -39,8 +39,8 @@ export default function Education() {
 
   const defaultEducation = [
     {
-      degree: 'BSc in Information & Communication Technology',
-      institution: 'University',
+      degree: 'BE in Aritifical Intelligence and Machine Learning',
+      institution: 'VTU University',
       field: 'AI & Software Engineering',
       status: 'Fourth Year',
       focus: 'Artificial Intelligence, Software Engineering',
@@ -60,46 +60,48 @@ export default function Education() {
         </p>
       </div>
 
-      <div className="education-grid">
+      <div className="education-timeline">
         {display.map((item, index) => {
-          const Icon = item.degree.includes('BSc') || item.degree.includes('Bachelor') ? FaGraduationCap : FaSchool;
+          const Icon = item.degree.includes('BE') || item.degree.includes('Bachelor') ? FaGraduationCap : FaSchool;
           return (
             <div
               key={index}
-              className={`education-card fade-up ${visible ? 'visible' : ''}`}
+              className={`education-item ${visible ? 'visible' : 'fade-up'}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="education-card-top">
-                <div className="education-icon-tile">
-                  <Icon size={26} color="#fff" />
+              <div className="education-dot" />
+              <div className="education-card">
+                <div className="education-card-top">
+                  <div className="education-icon-tile">
+                    <Icon size={24} color="#fff" />
+                  </div>
+                  <span className="education-status">{item.status}</span>
                 </div>
-                <span className="education-status">{item.status}</span>
-              </div>
 
-              <h3 className="education-degree">{item.degree}</h3>
-              <p className="education-institution">{item.institution}</p>
-              <p className="education-field">{item.field}</p>
+                <h3 className="education-degree">{item.degree}</h3>
+                <p className="education-institution">{item.institution}</p>
+                <p className="education-field">{item.field}</p>
 
-              <div className="education-meta">
-                <p><strong>Focus:</strong> {item.focus}</p>
-                <p><strong>Status:</strong> {item.status} year</p>
-              </div>
-
-              <div className="education-tags">
-                {(item.coursework || []).map((tag, i) => (
-                  <span key={i} className="tag">{tag}</span>
-                ))}
-              </div>
-
-              {(item.learnings && item.learnings.length > 0) && (
-                <div className="education-learnings">
-                  <ul>
-                    {item.learnings.map((l, i) => (
-                      <li key={i}>{l}</li>
-                    ))}
-                  </ul>
+                <div className="education-meta">
+                  <p><strong>Focus:</strong> {item.focus}</p>
                 </div>
-              )}
+
+                <div className="education-tags">
+                  {(item.coursework || []).map((tag, i) => (
+                    <span key={i} className="tag">{tag}</span>
+                  ))}
+                </div>
+
+                {(item.learnings && item.learnings.length > 0) && (
+                  <div className="education-learnings">
+                    <ul>
+                      {item.learnings.map((l, i) => (
+                        <li key={i}>{l}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}

@@ -40,8 +40,10 @@ export default function About() {
         </div>
 
         <div className="about-grid">
-          <div className={`about-image-wrapper ${visible ? 'visible' : 'fade-up'}`}>
-            <img src="/images/profile.jpeg" alt="Mohammed Nuhan" className="about-image" />
+          <div className="about-image-col">
+            <div className={`about-image-wrapper ${visible ? 'visible' : 'fade-up'}`}>
+              <img src="/images/profile.jpeg" alt="Mohammed Nuhan" className="about-image" />
+            </div>
           </div>
 
           <div className="about-content">
@@ -49,7 +51,7 @@ export default function About() {
               21 <span className="separator">|</span> AI & Software Engineering Student
             </h3>
             <p className={`about-text ${visible ? 'visible' : 'fade-up'}`}>
-              I'm Mohammed Nuhan, a passionate AI and Software Engineering student from Sri Lanka.
+              I'm Mohammed Nuhan, a passionate AI and Software Engineering student from Banglore.
               I love diving deep into artificial intelligence, building intelligent agents,
               and crafting complete web applications from the ground up.
             </p>

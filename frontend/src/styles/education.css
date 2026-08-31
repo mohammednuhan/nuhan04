@@ -1,135 +1,142 @@
+/* ===== Education Section - Vertical Timeline ===== */
 .education-section {
-  position: relative;
+  position: relative; overflow: hidden;
 }
 
-.education-header {
-  text-align: center;
-  margin-bottom: 3rem;
+.education-header { text-align: center; margin-bottom: 3.5rem; }
+.education-header .section-subtitle { margin: 0 auto; }
+
+.education-timeline {
+  position: relative; max-width: 800px; margin: 0 auto;
 }
 
-.education-header .section-subtitle {
-  margin-left: auto;
-  margin-right: auto;
+.education-timeline::before {
+  content: ''; position: absolute;
+  left: 50%; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+  transform: translateX(-50%); opacity: 0.25;
+  border-radius: 1px;
 }
 
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 1.5rem;
+.education-item {
+  position: relative; width: 50%; padding: 0 2.5rem 3rem;
 }
 
-.education-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 18px;
-  padding: 1.75rem;
+.education-item:nth-child(odd) { left: 0; padding-right: 3rem; padding-left: 0; }
+.education-item:nth-child(even) { left: 50%; padding-left: 3rem; padding-right: 0; }
+
+.education-dot {
+  position: absolute; top: 0.5rem; width: 16px; height: 16px;
+  border-radius: 50%; z-index: 2;
+  background: var(--gradient-primary);
+  border: 3px solid var(--bg-dark);
+  box-shadow: 0 0 0 3px rgba(79, 142, 255, 0.2), 0 0 20px rgba(79, 142, 255, 0.3);
   transition: all 0.3s ease;
 }
 
-.education-card:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(139, 92, 246, 0.3);
-  transform: translateY(-6px);
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.08);
+.education-item:nth-child(odd) .education-dot { right: -8px; }
+.education-item:nth-child(even) .education-dot { left: -8px; }
+
+.education-dot::after {
+  content: ''; position: absolute; inset: 3px;
+  border-radius: 50%; background: var(--bg-dark);
 }
 
+.education-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 1.8rem;
+  transition: all 0.35s ease; position: relative;
+}
+
+.education-card::before {
+  content: ''; position: absolute; inset: -1px;
+  border-radius: 19px; background: var(--gradient-primary);
+  opacity: 0; z-index: -1; transition: opacity 0.4s ease;
+}
+
+.education-card:hover {
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.education-card:hover::before { opacity: 0.15; }
+
 .education-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.2rem;
 }
 
 .education-icon-tile {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--gradient-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(153, 102, 255, 0.3);
 }
 
 .education-status {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.35rem 0.9rem;
-  border-radius: 20px;
-  background: rgba(6, 182, 212, 0.1);
-  color: var(--accent-cyan);
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.85rem;
+  border-radius: 20px; font-family: var(--font-heading);
+  background: rgba(0, 212, 170, 0.08); color: var(--accent-cyan);
+  border: 1px solid rgba(0, 212, 170, 0.15);
+  letter-spacing: 0.02em;
 }
 
 .education-degree {
-  font-size: 1.15rem;
-  font-family: var(--font-heading);
-  color: var(--text-main);
-  margin-bottom: 0.4rem;
+  font-size: 1.15rem; font-family: var(--font-heading);
+  color: var(--text-main); margin-bottom: 0.4rem; letter-spacing: -0.02em;
 }
 
 .education-institution {
-  color: var(--accent-blue);
-  font-weight: 600;
-  font-size: 0.95rem;
+  color: var(--accent-blue); font-weight: 600; font-size: 0.9rem;
   margin-bottom: 0.2rem;
 }
 
 .education-field {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
+  color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;
 }
 
-.education-meta {
-  margin-bottom: 1rem;
-}
+.education-meta { margin-bottom: 0.8rem; }
 
 .education-meta p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: 0.35rem;
+  color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.25rem;
   line-height: 1.6;
 }
 
-.education-meta strong {
-  color: var(--text-main);
-  font-weight: 600;
-}
+.education-meta strong { color: var(--text-main); font-weight: 600; }
 
-.education-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
+.education-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
 
 .education-learnings ul {
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
 }
 
 .education-learnings li {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  position: relative;
+  color: var(--text-muted); font-size: 0.88rem;
+  position: relative; padding-left: 1.1rem;
 }
 
 .education-learnings li::before {
-  content: '';
-  position: absolute;
-  left: -1.1rem;
-  top: 0.45rem;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+  content: ''; position: absolute; left: 0; top: 0.5rem;
+  width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent-purple);
 }
 
-@media (max-width: 640px) {
-  .education-grid {
-    grid-template-columns: 1fr;
+/* Animate timeline items on scroll */
+.education-item:nth-child(odd).visible {
+  animation: slide-in-left 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.education-item:nth-child(even).visible {
+  animation: slide-in-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (max-width: 768px) {
+  .education-timeline::before { left: 20px; }
+
+  .education-item {
+    width: 100%; left: 0 !important;
+    padding-left: 50px !important; padding-right: 0 !important;
   }
+
+  .education-dot { left: 12px !important; right: auto !important; }
 }

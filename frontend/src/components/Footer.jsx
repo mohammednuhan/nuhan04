@@ -10,9 +10,9 @@ export default function Footer() {
           <span className="footer-logo-text">MN.dev</span>
         </div>
         <p className="footer-text">
-          Designed and Built by <span className="footer-name">Mohammed Nuhan</span>
+          Managed by<span className="footer-name">Mohammed Nuhan</span>
         </p>
-        <p className="footer-copyright">© 2026 Mohammed Nuhan. All rights reserved.</p>
+        <p className="footer-copyright">2026 Mohammed Nuhan</p>
       </div>
     </footer>
   );

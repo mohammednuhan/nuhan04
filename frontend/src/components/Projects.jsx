@@ -77,10 +77,10 @@ export default function Projects() {
             style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
           >
             <div className="project-image-area">
-              <div className="project-image-overlay" />
+              <div className="project-mesh" />
               <FaRobot
                 className="project-image-icon"
-                size={48}
+                size={44}
                 style={{ background: `linear-gradient(135deg, hsl(${(index * 60) % 360}, 70%, 55%), hsl(${(index * 60 + 60) % 360}, 70%, 45%))` }}
               />
             </div>

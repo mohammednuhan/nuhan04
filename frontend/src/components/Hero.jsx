@@ -4,9 +4,8 @@ import '../styles/hero.css';
 
 const titles = [
   'AI Student',
-  'Software Engineer',
-  'C++ Learner',
   'Full Stack Developer',
+  'Aspring to become Software Enginerring'
 ];
 
 export default function Hero() {
@@ -48,9 +47,19 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className={`hero ${visible ? 'hero-visible' : ''}`}>
-      <div className="hero-blob hero-blob-1" />
-      <div className="hero-blob hero-blob-2" />
+    <section id="hero" className={`hero ${visible ? 'visible' : ''}`}>
+      <div className="hero-bg-mesh" />
+      <div className="hero-orb hero-orb-1" />
+      <div className="hero-orb hero-orb-2" />
+      <div className="hero-orb hero-orb-3" />
+      <div className="hero-particles">
+        <div className="hero-particle" />
+        <div className="hero-particle" />
+        <div className="hero-particle" />
+        <div className="hero-particle" />
+        <div className="hero-particle" />
+        <div className="hero-particle" />
+      </div>
       <div className="hero-content">
         <div className="hero-image-wrapper">
           <img src="/images/profile.jpeg" alt="Mohammed Nuhan" className="hero-image" />
@@ -82,13 +91,13 @@ export default function Hero() {
         </div>
 
         <div className="hero-socials">
-          <a href="https://github.com/MohammedNuhan" target="_blank" rel="noopener noreferrer" className="hero-social-icon" aria-label="GitHub">
+          <a href="https://github.com/mohammednuhan" target="_blank" rel="noopener noreferrer" className="hero-social-icon" aria-label="GitHub">
             <FaGithub size={20} />
           </a>
-          <a href="https://www.linkedin.com/in/mohammed-nuhan/" target="_blank" rel="noopener noreferrer" className="hero-social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/mohammednuhan04/" target="_blank" rel="noopener noreferrer" className="hero-social-icon" aria-label="LinkedIn">
             <FaLinkedinIn size={20} />
           </a>
-          <a href="mailto:nuhan@example.com" className="hero-social-icon" aria-label="Email">
+          <a href="nuhanmohammed04@gmail.com" className="hero-social-icon" aria-label="Email">
             <FaEnvelope size={20} />
           </a>
           <a href="#" className="hero-social-icon" aria-label="Resume">
