@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Skill {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  icon        String
+  color       String?
+  category    String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  tags        String[]
+  githubUrl   String?
+  liveUrl     String?
+  imageUrl    String?
+  featured    Boolean   @default(false)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Education {
+  id             Int       @id @default(autoincrement())
+  degree         String
+  institution    String
+  field          String
+  status         String
+  focus          String?
+  coursework     String[]
+  keyLearnings   String[]
+  icon           String    @default("graduation-cap")
+  order          Int       @default(0)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model BeyondCard {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  icon        String
+  type        String    @default("trait")
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model SportAchievement {
+  id          Int       @id @default(autoincrement())
+  title       String
+  tag         String
+  description String
+  icon        String
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+}

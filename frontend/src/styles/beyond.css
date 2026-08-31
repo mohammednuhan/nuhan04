@@ -1,0 +1,159 @@
+.beyond-section {
+  position: relative;
+}
+
+.beyond-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.beyond-header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.beyond-traits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.beyond-trait {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.75rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.beyond-trait:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+.beyond-trait-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.beyond-trait-name {
+  font-size: 1.05rem;
+  font-family: var(--font-heading);
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.beyond-trait-desc {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.beyond-sports {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.beyond-sports-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.beyond-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.beyond-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+  opacity: 0.4;
+}
+
+.beyond-timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.beyond-timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 0.6rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  border: 3px solid var(--bg-dark);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.beyond-timeline-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.beyond-timeline-content:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  transform: translateX(4px);
+}
+
+.beyond-timeline-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.beyond-timeline-title {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.98rem;
+}
+
+.beyond-timeline-year {
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 12px;
+  background: rgba(6, 182, 212, 0.08);
+}
+
+.beyond-timeline-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .beyond-traits {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .beyond-trait {
+    padding: 1.25rem;
+  }
+}

@@ -1,0 +1,140 @@
+.about-section {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 1.5rem;
+}
+
+.about-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.about-blob {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: var(--gradient-primary);
+  filter: blur(150px);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-header {
+  margin-bottom: 3rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-image-wrapper {
+  width: 280px;
+  height: 340px;
+  border-radius: 20px;
+  padding: 3px;
+  background: var(--gradient-primary);
+  position: sticky;
+  top: 100px;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  border: 3px solid var(--bg-dark);
+}
+
+.about-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-family: var(--font-heading);
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.about-heading .separator {
+  color: var(--accent-cyan);
+  margin: 0 0.5rem;
+}
+
+.about-text {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.about-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.about-highlight:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateX(4px);
+}
+
+.about-highlight-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-highlight-label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image-wrapper {
+    width: 220px;
+    height: 270px;
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+  }
+
+  .about-highlight {
+    max-width: 100%;
+  }
+}
