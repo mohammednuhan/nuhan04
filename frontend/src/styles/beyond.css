@@ -124,4 +124,18 @@
 @media (max-width: 640px) {
   .beyond-traits { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .beyond-trait { padding: 1.2rem; }
+  .beyond-header { margin-bottom: 2.5rem; }
+  .beyond-traits { margin-bottom: 3rem; }
+}
+
+@media (max-width: 420px) {
+  .beyond-traits { gap: 0.6rem; }
+  .beyond-trait { padding: 1rem 0.8rem; border-radius: 15px; }
+  .beyond-trait:hover { transform: none; }
+  .beyond-trait-icon { width: 44px; height: 44px; margin-bottom: 0.8rem; }
+  .beyond-trait-name { font-size: 0.95rem; }
+  .beyond-trait-desc { font-size: 0.78rem; line-height: 1.5; }
+  .beyond-sports-title { font-size: 1.25rem; margin-bottom: 1.5rem; }
+  .beyond-timeline { padding-left: 2rem; }
+  .beyond-timeline-dot { left: -2rem; width: 14px; height: 14px; }
 }

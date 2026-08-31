@@ -131,12 +131,27 @@
 }
 
 @media (max-width: 768px) {
-  .education-timeline::before { left: 20px; }
+  .education-timeline::before { left: 16px; }
 
   .education-item {
     width: 100%; left: 0 !important;
-    padding-left: 50px !important; padding-right: 0 !important;
+    padding-left: 44px !important; padding-right: 0 !important;
+    padding-bottom: 2rem;
   }
 
-  .education-dot { left: 12px !important; right: auto !important; }
+  .education-dot { left: 8px !important; right: auto !important; width: 14px; height: 14px; }
+  .education-header { margin-bottom: 2.5rem; }
+}
+
+@media (max-width: 420px) {
+  .education-item { padding-left: 40px !important; }
+  .education-card { padding: 1.2rem; border-radius: 16px; }
+  .education-card:hover { transform: none; }
+  .education-card-top { margin-bottom: 0.9rem; }
+  .education-icon-tile { width: 42px; height: 42px; }
+  .education-degree { font-size: 1rem; }
+  .education-institution { font-size: 0.85rem; }
+  .education-field { font-size: 0.82rem; margin-bottom: 0.8rem; }
+  .education-meta p { font-size: 0.82rem; }
+  .education-learnings li { font-size: 0.84rem; }
 }

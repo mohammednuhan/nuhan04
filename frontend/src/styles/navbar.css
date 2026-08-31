@@ -73,6 +73,7 @@
     height: 100vh; background: rgba(6, 6, 10, 0.97);
     backdrop-filter: blur(24px); flex-direction: column;
     justify-content: center; gap: 0.25rem; padding: 2rem;
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: 1px solid var(--border);
   }
@@ -85,4 +86,13 @@
     display: block; width: 100%; padding: 0.85rem 1.2rem;
     font-size: 1rem; border-radius: 12px;
   }
+
+  .navbar-container { padding: 0 1rem; }
+}
+
+@media (max-width: 420px) {
+  .navbar-logo-text { font-size: 1rem; }
+  .navbar-avatar { width: 34px; height: 34px; }
+  .navbar-hamburger { padding: 0.4rem; }
+  .navbar-container { padding: 0 0.9rem; }
 }

@@ -77,4 +77,15 @@
   .skills-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .skill-card { padding: 1.1rem; }
   .skill-tile { width: 44px; height: 44px; }
+  .skill-description { font-size: 0.78rem; }
+}
+
+@media (max-width: 420px) {
+  .skills-header { margin-bottom: 2rem; }
+  .skills-grid { gap: 0.6rem; }
+  .skill-card { padding: 0.9rem; border-radius: 14px; }
+  .skill-card:hover { transform: none; }
+  .skill-tile { width: 40px; height: 40px; border-radius: 12px; margin-bottom: 0.7rem; }
+  .skill-name { font-size: 0.95rem; }
+  .skill-description { font-size: 0.74rem; line-height: 1.5; }
 }

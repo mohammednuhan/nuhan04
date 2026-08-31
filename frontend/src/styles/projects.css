@@ -128,5 +128,17 @@
 .projects-more { text-align: center; }
 
 @media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+  .project-card:hover { transform: none; border-color: var(--border); box-shadow: none; }
+  .projects-header { margin-bottom: 2.5rem; }
+}
+
+@media (max-width: 420px) {
+  .project-image-area { height: 150px; }
+  .project-body { padding: 1.1rem 1.1rem 1.2rem; }
+  .project-title { font-size: 1.02rem; }
+  .project-description { font-size: 0.84rem; line-height: 1.6; }
+  .project-tags { gap: 0.35rem; }
+  .project-tags .tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; }
+  .project-links { padding-top: 0.8rem; }
 }

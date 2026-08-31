@@ -75,3 +75,17 @@ a.contact-item-value:hover { color: var(--accent-cyan); }
 }
 
 .contact-cta { margin-top: 2rem; }
+
+@media (max-width: 640px) {
+  .contact-info { margin: 2rem auto; }
+  .contact-item { padding: 1rem 1.1rem; }
+  .contact-item-value { font-size: 0.9rem; word-break: break-word; }
+}
+
+@media (max-width: 420px) {
+  .contact-item-icon { width: 40px; height: 40px; }
+  .contact-item { gap: 0.8rem; }
+  .contact-item-label { font-size: 0.68rem; }
+  .contact-social-btn { padding: 0.65rem 1.1rem; font-size: 0.85rem; }
+  .contact-social-btn:hover { transform: none; }
+}

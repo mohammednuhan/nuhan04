@@ -38,3 +38,14 @@
 .footer-copyright {
   color: var(--text-muted); font-size: 0.8rem; opacity: 0.6;
 }
+
+@media (max-width: 768px) {
+  .footer { padding: 2.75rem 1rem; }
+}
+
+@media (max-width: 420px) {
+  .footer { padding: 2.25rem 0.9rem; }
+  .footer-text { font-size: 0.85rem; }
+  .footer-copyright { font-size: 0.75rem; }
+  .footer-logo-text { font-size: 1.15rem; }
+}
