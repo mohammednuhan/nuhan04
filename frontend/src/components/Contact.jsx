@@ -54,14 +54,14 @@ export default function Contact() {
             </div>
             <div>
               <span className="contact-item-label">Location</span>
-              <span className="contact-item-value">Banglore</span>
+              <span className="contact-item-value">Bangalore</span>
             </div>
           </div>
         </div>
 
         <div className={`contact-socials ${visible ? 'visible' : 'fade-up'}`}>
           <a
-            href="https://github.com/MohammedNuhan"
+            href="https://github.com/mohammednuhan"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-social-btn"
@@ -70,7 +70,7 @@ export default function Contact() {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/mohammed-nuhan/"
+            href="https://www.linkedin.com/in/mohammednuhan04/"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-social-btn"

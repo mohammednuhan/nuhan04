@@ -5,7 +5,7 @@ import '../styles/hero.css';
 const titles = [
   'AI Student',
   'Full Stack Developer',
-  'Aspring to become Software Enginerring'
+  'Aspiring to become Software Engineering'
 ];
 
 export default function Hero() {

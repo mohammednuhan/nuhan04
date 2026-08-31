@@ -26,9 +26,9 @@ Thumbs.db
 npm-debug.log*
 
 # Old static files (migrated to React frontend)
-index.html
-style.css
-script.js
-sw.js
-manifest.json
-resume.pdf
+/index.html
+/style.css
+/script.js
+/sw.js
+/manifest.json
+/resume.pdf

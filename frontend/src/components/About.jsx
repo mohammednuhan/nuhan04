@@ -92,7 +92,7 @@ export default function About() {
               21 <span className="sep">|</span> AI & Software Engineering Student
             </h3>
             <p className={`about-text ${visible ? 'visible' : 'fade-up'}`}>
-              I'm Mohammed Nuhan, a passionate AI and Software Engineering student from Banglore.
+              I'm Mohammed Nuhan, a passionate AI and Software Engineering student from Bangalore.
               I love diving deep into artificial intelligence, building intelligent agents,
               and crafting complete web applications from the ground up.
             </p>

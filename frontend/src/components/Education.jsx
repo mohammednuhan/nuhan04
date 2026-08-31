@@ -39,13 +39,13 @@ export default function Education() {
 
   const defaultEducation = [
     {
-      degree: 'BE in Aritifical Intelligence and Machine Learning',
+      degree: 'BE in Artificial Intelligence and Machine Learning',
       institution: 'VTU University',
       field: 'AI & Software Engineering',
       status: 'Fourth Year',
       focus: 'Artificial Intelligence, Software Engineering',
       coursework: ['Machine Learning', 'Software Architecture'],
-      learnings: ['Agentic AI systems', 'Scalable web applications'],
+      keyLearnings: ['Agentic AI systems', 'Scalable web applications'],
     },
   ];
 
@@ -62,7 +62,7 @@ export default function Education() {
 
       <div className="education-timeline">
         {display.map((item, index) => {
-          const Icon = item.degree.includes('BE') || item.degree.includes('Bachelor') ? FaGraduationCap : FaSchool;
+          const Icon = item.degree.includes('BE') || item.degree.includes('B.Tech') || item.degree.includes('Bachelor') ? FaGraduationCap : FaSchool;
           return (
             <div
               key={index}
@@ -92,10 +92,10 @@ export default function Education() {
                   ))}
                 </div>
 
-                {(item.learnings && item.learnings.length > 0) && (
+                {(item.keyLearnings && item.keyLearnings.length > 0) && (
                   <div className="education-learnings">
                     <ul>
-                      {item.learnings.map((l, i) => (
+                      {item.keyLearnings.map((l, i) => (
                         <li key={i}>{l}</li>
                       ))}
                     </ul>
