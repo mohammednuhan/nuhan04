@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" role="img" aria-label="RAG FROM SCRATCH architecture diagram — building a Retrieval-Augmented Generation pipeline step by step">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f8eff"/>
+      <stop offset="100%" stop-color="#9966ff"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="100%" stop-color="#ff9f43"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#4f8eff"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9966ff"/>
+      <stop offset="100%" stop-color="#ff6b9d"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="440" rx="20" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">RAG FROM SCRATCH</text>
+  <text x="400" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="12.5" fill="#9aa3b5">Building a Retrieval-Augmented Generation Pipeline — Python, PyMuPDF, Sentence Transformers, ChromaDB</text>
+
+  <!-- ===== ROW 1: Pipeline stages ===== -->
+
+  <!-- 1. PDF Document -->
+  <rect x="30" y="95" width="140" height="70" rx="12" fill="#1c2333" stroke="url(#warm)" stroke-width="2"/>
+  <text x="100" y="120" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">📄 PDF Document</text>
+  <text x="100" y="139" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">documents/</text>
+  <text x="100" y="154" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">rag_test_document.pdf</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="170" y1="130" x2="206" y2="130" stroke="#ff9f43" stroke-width="2" marker-end="url(#arrow-warm)"/>
+
+  <!-- 2. PyMuPDF Extractor (main.py) -->
+  <rect x="210" y="95" width="150" height="70" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2"/>
+  <text x="285" y="117" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">PyMuPDF (fitz)</text>
+  <text x="285" y="137" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">main.py — Extract text</text>
+  <text x="285" y="153" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">page.get_text()</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="360" y1="130" x2="396" y2="130" stroke="#4f8eff" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- 3. Text Chunking (main.py) -->
+  <rect x="400" y="95" width="150" height="70" rx="12" fill="#1c2333" stroke="url(#cool)" stroke-width="2"/>
+  <text x="475" y="117" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Text Chunking</text>
+  <text x="475" y="137" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">main.py — 500-char splits</text>
+  <text x="475" y="153" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">chunk_size = 500</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="550" y1="130" x2="586" y2="130" stroke="#00d4aa" stroke-width="2" marker-end="url(#arrow-cool)"/>
+
+  <!-- 4. Embeddings -->
+  <rect x="590" y="95" width="180" height="70" rx="12" fill="#1c2333" stroke="url(#purple)" stroke-width="2" filter="url(#glow)"/>
+  <text x="680" y="117" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Sentence Embeddings</text>
+  <text x="680" y="137" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">embed.py — all-MiniLM-L6-v2</text>
+  <text x="680" y="153" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">model.encode(chunks)</text>
+
+  <!-- Down arrow from Embeddings to DB -->
+  <line x1="680" y1="165" x2="680" y2="218" stroke="#9966ff" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-purple)"/>
+
+  <!-- ===== ROW 2: Vector DB + storage ===== -->
+
+  <!-- 5. ChromaDB -->
+  <rect x="530" y="222" width="300" height="80" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2" filter="url(#glow)"/>
+  <text x="680" y="248" text-anchor="middle" font-family="Arial" font-size="14" fill="#ffffff" font-weight="bold">ChromaDB Vector Store</text>
+  <text x="680" y="270" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">vector_db.py — PersistentClient(./chroma_db)</text>
+  <text x="680" y="286" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">collection "rag_documents" → chunks + embeddings</text>
+  <ellipse cx="680" cy="232" rx="130" ry="8" fill="none" stroke="#4f8eff" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- ===== ROW LEFT: What was built ===== -->
+
+  <!-- File icons stacked -->
+  <rect x="30" y="215" width="200" height="38" rx="8" fill="#1c2333" stroke="#ff9f43" stroke-width="1.5"/>
+  <text x="42" y="240" font-family="Arial" font-size="12" fill="#ff9f43" font-weight="bold">📄 main.py</text>
+  <text x="130" y="240" font-family="Arial" font-size="10" fill="#9aa3b5">PDF → Text → Chunks</text>
+
+  <rect x="30" y="261" width="200" height="38" rx="8" fill="#1c2333" stroke="#9966ff" stroke-width="1.5"/>
+  <text x="42" y="286" font-family="Arial" font-size="12" fill="#9966ff" font-weight="bold">🧠 embed.py</text>
+  <text x="130" y="286" font-family="Arial" font-size="10" fill="#9aa3b5">Text → Vector embeddings</text>
+
+  <rect x="30" y="307" width="200" height="38" rx="8" fill="#1c2333" stroke="#00d4aa" stroke-width="1.5"/>
+  <text x="42" y="332" font-family="Arial" font-size="12" fill="#00d4aa" font-weight="bold">💾 vector_db.py</text>
+  <text x="130" y="332" font-family="Arial" font-size="10" fill="#9aa3b5">Store embeddings in ChromaDB</text>
+
+  <!-- Arrow from file list to chromadb -->
+  <line x1="230" y1="326" x2="528" y2="262" stroke="#00d4aa" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+
+  <!-- ===== ROW 3: Pipeline Summary ===== -->
+
+  <!-- Pipeline label -->
+  <rect x="30" y="370" width="740" height="50" rx="10" fill="rgba(79, 142, 255, 0.05)" stroke="rgba(79, 142, 255, 0.15)" stroke-width="1"/>
+  <text x="80" y="394" font-family="Arial" font-size="11" fill="#4f8eff" font-weight="bold">RAG PIPELINE:</text>
+  <text x="188" y="394" font-family="Arial" font-size="11" fill="#9aa3b5">PDF Document → PyMuPDF text extraction → 500-char chunks → all-MiniLM-L6-v2 embeddings → ChromaDB vector store</text>
+
+  <!-- Legend -->
+  <text x="400" y="432" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">main.py · embed.py · vector_db.py · PyMuPDF · Sentence Transformers · ChromaDB · Python</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-warm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ff9f43"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4f8eff"/>
+    </marker>
+    <marker id="arrow-cool" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00d4aa"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9966ff"/>
+    </marker>
+  </defs>
+</svg>

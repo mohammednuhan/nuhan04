@@ -112,6 +112,17 @@ async function main() {
         featured: true,
         order: 6,
       },
+      {
+        title: "RAG FROM SCRATCH",
+        description:
+          "A hands-on, zero-framework implementation of a Retrieval-Augmented Generation (RAG) pipeline built entirely from scratch in Python. Manually parses a PDF with PyMuPDF, splits extracted text into 500-character chunks, converts each chunk into a dense vector embedding using Sentence Transformers (all-MiniLM-L6-v2), and stores everything in ChromaDB for semantic search — no LangChain, no LlamaIndex, every step is written and understood by hand.",
+        tags: ["Python", "PyMuPDF", "Sentence Transformers", "ChromaDB", "RAG", "LLM", "Embeddings", "Vector DB"],
+        githubUrl: "https://github.com/mohammednuhan/RAG-FROM-SCRATCH",
+        liveUrl: null,
+        imageUrl: "/images/rag-from-scratch-architecture.svg",
+        featured: true,
+        order: 7,
+      },
     ],
   });
   console.log(`Created ${projects.count} projects`);
