@@ -277,3 +277,16 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; lin
   .section { padding: 3.5rem 0.9rem; }
   .section-title { font-size: 1.5rem; }
 }
+
+/* Smoother motion for phones / battery saving */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Projects section reserved size — smaller for faster scroll painting */
+.projects-section { contain-intrinsic-size: auto 400px; }

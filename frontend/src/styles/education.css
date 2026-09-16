@@ -131,27 +131,45 @@
 }
 
 @media (max-width: 768px) {
-  .education-timeline::before { left: 16px; }
+  .education-header { margin-bottom: 2rem; }
+  .education-timeline::before { left: 14px; }
 
   .education-item {
     width: 100%; left: 0 !important;
-    padding-left: 44px !important; padding-right: 0 !important;
-    padding-bottom: 2rem;
+    padding-left: 36px !important; padding-right: 0 !important;
+    padding-bottom: 1.2rem;
   }
 
-  .education-dot { left: 8px !important; right: auto !important; width: 14px; height: 14px; }
-  .education-header { margin-bottom: 2.5rem; }
+  .education-dot { left: 6px !important; right: auto !important; width: 12px; height: 12px; top: 0.35rem; }
+  .education-card { padding: 1.1rem 1.2rem; border-radius: 14px; }
+  .education-card:hover { transform: none; box-shadow: none; }
+  .education-card-top { margin-bottom: 0.7rem; }
+  .education-icon-tile { width: 34px; height: 34px; border-radius: 10px; }
+  .education-icon-tile svg { width: 16px; height: 16px; }
+  .education-status { font-size: 0.66rem; padding: 0.24rem 0.7rem; }
+  .education-degree { font-size: 0.98rem; margin-bottom: 0.3rem; }
+  .education-institution { font-size: 0.84rem; }
+  .education-field { font-size: 0.82rem; margin-bottom: 0.6rem; }
+  .education-meta { margin-bottom: 0.5rem; }
+  .education-meta p { font-size: 0.8rem; margin-bottom: 0.15rem; line-height: 1.5; }
+  .education-tags { gap: 0.3rem; margin-bottom: 0.6rem; }
+  .education-tags .tag { font-size: 0.68rem; padding: 0.22rem 0.6rem; }
+  .education-learnings ul { gap: 0.2rem; }
+  .education-learnings li { font-size: 0.8rem; padding-left: 0.95rem; }
+  .education-learnings li::before { top: 0.45rem; width: 5px; height: 5px; }
 }
 
 @media (max-width: 420px) {
-  .education-item { padding-left: 40px !important; }
-  .education-card { padding: 1.2rem; border-radius: 16px; }
+  .education-header { margin-bottom: 1.6rem; }
+  .education-item { padding-left: 32px !important; padding-bottom: 1rem; }
+  .education-card { padding: 0.9rem 1rem; border-radius: 13px; }
   .education-card:hover { transform: none; }
-  .education-card-top { margin-bottom: 0.9rem; }
-  .education-icon-tile { width: 42px; height: 42px; }
-  .education-degree { font-size: 1rem; }
-  .education-institution { font-size: 0.85rem; }
-  .education-field { font-size: 0.82rem; margin-bottom: 0.8rem; }
-  .education-meta p { font-size: 0.82rem; }
-  .education-learnings li { font-size: 0.84rem; }
+  .education-card-top { margin-bottom: 0.6rem; }
+  .education-icon-tile { width: 30px; height: 30px; }
+  .education-status { font-size: 0.62rem; padding: 0.2rem 0.6rem; }
+  .education-degree { font-size: 0.9rem; }
+  .education-institution { font-size: 0.8rem; }
+  .education-field { font-size: 0.76rem; margin-bottom: 0.5rem; }
+  .education-meta p { font-size: 0.76rem; }
+  .education-learnings li { font-size: 0.76rem; }
 }

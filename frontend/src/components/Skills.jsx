@@ -53,6 +53,9 @@ const iconMap = {
   mysql: SiMysql,
   flask: SiFlask,
   database: FaDatabase,
+  'vector db': FaDatabase,
+  vectordb: FaDatabase,
+  'vector-db': FaDatabase,
   ai: FaBrain,
   terminal: FaTerminal,
   code: FaCode,
@@ -104,6 +107,13 @@ export default function Skills() {
     { name: 'C++', description: 'Systems programming & algorithms', color: '#00599c', icon: 'cpp', category: 'Languages' },
     { name: 'Docker', description: 'Containerized deployments', color: '#2496ed', icon: 'docker', category: 'DevOps' },
     { name: 'PostgreSQL', description: 'Relational database & SQL', color: '#4169e1', icon: 'postgresql', category: 'Databases' },
+    { name: 'RAG', description: 'Retrieval-Augmented Generation pipelines', color: '#10b981', icon: 'ai', category: 'AI / ML' },
+    { name: 'LLM', description: 'Large Language Model integration & prompting', color: '#8b5cf6', icon: 'ai', category: 'AI / ML' },
+    { name: 'Transformer', description: 'Transformer architecture & attention models', color: '#f97316', icon: 'ai', category: 'AI / ML' },
+    { name: 'Vector DB', description: 'Vector databases for semantic search', color: '#06b6d4', icon: 'database', category: 'AI / ML' },
+    { name: 'RLM', description: 'Reasoning Language Models from scratch', color: '#ec4899', icon: 'ai', category: 'AI / ML' },
+    { name: 'AWS', description: 'Amazon Web Services cloud platform', color: '#FF9900', icon: 'code', category: 'DevOps' },
+    { name: 'Render', description: 'Cloud app deployment & hosting', color: '#46e3b7', icon: 'code', category: 'DevOps' },
   ];
 
   const displaySkills = skills.length > 0 ? skills : defaultSkills;
