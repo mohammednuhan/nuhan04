@@ -123,6 +123,17 @@ async function main() {
         featured: true,
         order: 7,
       },
+      {
+        title: "RLM MODEL — Reasoning Language Model from Scratch",
+        description:
+          "A from-scratch reasoning language model (RLM) project in Python built around two hand-coded pipelines. The knowledge pipeline (agent.py → pdf_loader.py → chunking.py) loads a knowledge PDF with PyMuPDF and splits it into overlapping 1200-char chunks (200-char overlap) to preserve context. The task-planning engine (planner.py) inspects a user task, classifies it as simple or complex based on keywords, and decomposes complex tasks into ordered subtasks — a foundational demonstration of knowledge retrieval prep and LLM-style planning, all built manually with no heavy frameworks.",
+        tags: ["Python", "PyMuPDF", "RLM", "Reasoning", "Task Planning", "Chunking", "From Scratch"],
+        githubUrl: "https://github.com/mohammednuhan/RLM-MODEL",
+        liveUrl: null,
+        imageUrl: "/images/rlm-model-architecture.svg",
+        featured: true,
+        order: 8,
+      },
     ],
   });
   console.log(`Created ${projects.count} projects`);
