@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" role="img" aria-label="RLM MODEL architecture diagram — knowledge pipeline and task planning written from scratch in Python">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#1a1030"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f8eff"/>
+      <stop offset="100%" stop-color="#9966ff"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="100%" stop-color="#ff9f43"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#4f8eff"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="440" rx="20" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">RLM MODEL</text>
+  <text x="400" y="64" text-anchor="middle" font-family="Arial, sans-serif" font-size="12.5" fill="#9aa3b5">Knowledge ingestion + Task-planning model built from scratch in Python (PyMuPDF)</text>
+
+  <!-- ===== LEFT PIPELINE: Knowledge ===== -->
+
+  <!-- Section label -->
+  <text x="300" y="92" text-anchor="middle" font-family="Arial" font-size="12" fill="#4f8eff" font-weight="bold">KNOWLEDGE PIPELINE (agent.py)</text>
+
+  <!-- 1. PDF -->
+  <rect x="30" y="105" width="130" height="64" rx="12" fill="#1c2333" stroke="url(#warm)" stroke-width="2"/>
+  <text x="95" y="128" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">📄 PDF Doc</text>
+  <text x="95" y="146" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">data/</text>
+  <text x="95" y="160" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">rlm_sample_knowledge.pdf</text>
+
+  <line x1="160" y1="137" x2="196" y2="137" stroke="#ff9f43" stroke-width="2" marker-end="url(#arrow-warm)"/>
+
+  <!-- 2. Loader -->
+  <rect x="200" y="105" width="140" height="64" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2"/>
+  <text x="270" y="126" text-anchor="middle" font-family="Arial" font-size="12.5" fill="#ffffff" font-weight="bold">pdf_loader.py</text>
+  <text x="270" y="146" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">PyMuPDF (fitz)</text>
+  <text x="270" y="160" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">page.get_text()</text>
+
+  <line x1="340" y1="137" x2="376" y2="137" stroke="#4f8eff" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- 3. chunking.py -->
+  <rect x="380" y="105" width="150" height="64" rx="12" fill="#1c2333" stroke="url(#cool)" stroke-width="2"/>
+  <text x="455" y="126" text-anchor="middle" font-family="Arial" font-size="12.5" fill="#ffffff" font-weight="bold">chunking.py</text>
+  <text x="455" y="146" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Sliding window chunks</text>
+  <text x="455" y="160" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">1200 chars · 200 overlap</text>
+
+  <!-- output -->
+  <rect x="570" y="105" width="200" height="64" rx="12" fill="#1c2333" stroke="url(#purple2)" stroke-width="2" filter="url(#glow)"/>
+  <text x="670" y="128" text-anchor="middle" font-family="Arial" font-size="12.5" fill="#ffffff" font-weight="bold">Chunked Knowledge</text>
+  <text x="670" y="146" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Ready for retrieval /</text>
+  <text x="670" y="160" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">reasoning · overlap = context</text>
+
+  <line x1="530" y1="137" x2="568" y2="137" stroke="#00d4aa" stroke-width="2" marker-end="url(#arrow-cool)"/>
+
+  <!-- ===== RIGHT PIPELINE: Planning ===== -->
+
+  <!-- Section label -->
+  <text x="275" y="222" text-anchor="middle" font-family="Arial" font-size="12" fill="#ff9f43" font-weight="bold">TASK PLANNING (planner.py)</text>
+
+  <!-- Task input -->
+  <rect x="30" y="238" width="150" height="60" rx="12" fill="#1c2333" stroke="url(#warm)" stroke-width="2"/>
+  <text x="105" y="262" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">User Task</text>
+  <text x="105" y="280" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">e.g. "find the average"</text>
+
+  <line x1="180" y1="268" x2="216" y2="268" stroke="#ff9f43" stroke-width="2" marker-end="url(#arrow-warm)"/>
+
+  <!-- Decide -->
+  <rect x="220" y="238" width="160" height="60" rx="12" fill="#1c2333" stroke="url(#blue)" stroke-width="2" filter="url(#glow)"/>
+  <text x="300" y="260" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Complexity Check</text>
+  <text x="300" y="278" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">keywords: average · multiply</text>
+  <text x="300" y="292" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#6666ff">simple ↔ complex</text>
+
+  <!-- Simple -->
+  <rect x="420" y="218" width="150" height="52" rx="12" fill="#1c2333" stroke="#00d4aa" stroke-width="2"/>
+  <text x="495" y="240" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#00d4aa" font-weight="bold">SIMPLE ✅</text>
+  <text x="495" y="258" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">1 subtask = the task itself</text>
+
+  <!-- Complex -->
+  <rect x="420" y="286" width="150" height="76" rx="12" fill="#1c2333" stroke="#ff6b9d" stroke-width="2"/>
+  <text x="495" y="308" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#ff6b9d" font-weight="bold">COMPLEX 🔀</text>
+  <text x="495" y="326" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">decomposed subtasks:</text>
+  <text x="495" y="341" text-anchor="middle" font-family="Arial" font-size="8.5" fill="#9aa3b5">sum → count → divide</text>
+
+  <!-- Fork arrows -->
+  <line x1="380" y1="258" x2="418" y2="244" stroke="#00d4aa" stroke-width="2" marker-end="url(#arrow-cool)"/>
+  <line x1="380" y1="278" x2="418" y2="316" stroke="#ff6b9d" stroke-width="2" marker-end="url(#arrow-warm)"/>
+
+  <!-- Outputs box -->
+  <rect x="610" y="252" width="160" height="76" rx="12" fill="#1c2333" stroke="url(#purple2)" stroke-width="2" filter="url(#glow)"/>
+  <text x="690" y="276" text-anchor="middle" font-family="Arial" font-size="12.5" fill="#ffffff" font-weight="bold">Plan Output</text>
+  <text x="690" y="296" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">{"complexity",</text>
+  <text x="690" y="310" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5"> "subtasks": [...]}</text>
+  <text x="690" y="324" text-anchor="middle" font-family="Arial" font-size="9" fill="#9aa3b5">task decomposition</text>
+
+  <line x1="570" y1="286" x2="608" y2="286" stroke="#9966ff" stroke-width="2" marker-end="url(#arrow-purple)"/>
+
+  <!-- ===== Files legend ===== -->
+  <rect x="30" y="384" width="740" height="38" rx="10" fill="rgba(79,142,255,0.05)" stroke="rgba(79,142,255,0.15)" stroke-width="1"/>
+  <text x="60" y="408" font-family="Arial" font-size="11" fill="#9aa3b5">
+    <tspan fill="#ff6b9d" font-weight="bold">pdf_loader.py</tspan> · <tspan fill="#00d4aa" font-weight="bold">chunking.py</tspan> · <tspan fill="#4f8eff" font-weight="bold">agent.py</tspan> (runner) · <tspan fill="#ff9f43" font-weight="bold">planner.py</tspan> (plan_task) · Python 3 · PyMuPDF · python-dotenv
+  </text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-warm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ff9f43"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4f8eff"/>
+    </marker>
+    <marker id="arrow-cool" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00d4aa"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9966ff"/>
+    </marker>
+  </defs>
+
+  <!-- second purple gradient for glow -->
+  <linearGradient id="purple2" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#9966ff"/>
+    <stop offset="100%" stop-color="#ff6b9d"/>
+  </linearGradient>
+</svg>
