@@ -101,6 +101,17 @@ async function main() {
         featured: true,
         order: 5,
       },
+      {
+        title: "Coffeeland FC — Football Academy Website",
+        description:
+          "A production website built for my own football club Coffeeland FC, Chikkamagaluru's premiere KSFA-affiliated academy. A React 19 + Vite 6 SPA with seven pages (Home, About, Academy, Events, News, Sponsors, Contact), hero slideshow, animated counters, and a green + gold club theme. Backed by a hand-coded Node.js TypeScript server (no Express) with custom routing and middleware, Prisma ORM over SQLite, JWT auth (jose) with admin/superadmin roles, bcrypt password hashing, student registration, and contact forms. Deployed in production on Vercel.",
+        tags: ["React 19", "Vite 6", "TypeScript", "Node.js", "Prisma", "SQLite", "JWT", "bcrypt", "Vercel", "Production"],
+        githubUrl: "https://github.com/mohammednuhan/COFFEELANDFC-",
+        liveUrl: "https://coffeelandfc.vercel.app/",
+        imageUrl: "/images/coffeelandfc-architecture.svg",
+        featured: true,
+        order: 6,
+      },
     ],
   });
   console.log(`Created ${projects.count} projects`);

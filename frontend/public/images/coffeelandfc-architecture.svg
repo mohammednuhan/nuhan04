@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" role="img" aria-label="Coffeeland FC - Football Academy website architecture diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1512"/>
+      <stop offset="100%" stop-color="#141609"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B5E20"/>
+      <stop offset="100%" stop-color="#2e8b33"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#f4d03f"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#4f8eff"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="100%" stop-color="#ff9f43"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" rx="20" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#D4AF37">Coffeeland FC ⚽</text>
+  <text x="400" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9aa3b5">Football Academy Website — Chikkamagaluru's Premier KSFA-Affiliated Club</text>
+
+  <!-- Vercel (top) -->
+  <rect x="300" y="78" width="200" height="52" rx="12" fill="#1c2333" stroke="#D4AF37" stroke-width="2"/>
+  <text x="400" y="101" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Vercel</text>
+  <text x="400" y="119" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">Production deploy → coffeelandfc.vercel.app</text>
+
+  <!-- Visitors / Users -->
+  <rect x="30" y="150" width="130" height="66" rx="12" fill="#1c2333" stroke="url(#gold)" stroke-width="2"/>
+  <text x="95" y="178" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Visitors</text>
+  <text x="95" y="196" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">Players / Parents</text>
+
+  <!-- Frontend -->
+  <rect x="220" y="150" width="160" height="66" rx="12" fill="#1c2333" stroke="url(#green)" stroke-width="2" filter="url(#glow)"/>
+  <text x="300" y="176" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">React 19 SPA</text>
+  <text x="300" y="194" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Vite 6 · Router · 7 pages</text>
+  <text x="300" y="208" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#8ae68f">Home · About · Academy · Events</text>
+
+  <!-- API endpoints box -->
+  <rect x="430" y="140" width="150" height="86" rx="12" fill="#1c2333" stroke="#D4AF37" stroke-width="1.5"/>
+  <text x="505" y="160" text-anchor="middle" font-family="Arial" font-size="11" fill="#D4AF37" font-weight="bold">REST APIs (/api)</text>
+  <text x="505" y="180" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">POST /register</text>
+  <text x="505" y="194" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">POST /contact</text>
+  <text x="505" y="208" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">GET /contacts · /students</text>
+  <text x="505" y="222" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">POST /auth/login</text>
+
+  <!-- Backend -->
+  <rect x="30" y="280" width="170" height="66" rx="12" fill="#1c2333" stroke="url(#green)" stroke-width="2" filter="url(#glow)"/>
+  <text x="115" y="306" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Node.js Backend</text>
+  <text x="115" y="324" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">TypeScript · Custom HTTP server</text>
+
+  <!-- Auth -->
+  <rect x="240" y="262" width="120" height="52" rx="12" fill="#1c2333" stroke="url(#warm)" stroke-width="2"/>
+  <text x="300" y="284" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" font-weight="bold">Auth Controllers</text>
+  <text x="300" y="302" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">JWT tokens · Roles</text>
+
+  <!-- Students -->
+  <rect x="240" y="334" width="120" height="52" rx="12" fill="#1c2333" stroke="url(#cool)" stroke-width="2"/>
+  <text x="300" y="356" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" font-weight="bold">Student Controllers</text>
+  <text x="300" y="374" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Register / List / Update</text>
+
+  <!-- Contacts -->
+  <rect x="240" y="406" width="120" height="52" rx="12" fill="#1c2333" stroke="url(#gold)" stroke-width="2"/>
+  <text x="300" y="428" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" font-weight="bold">Contact Controllers</text>
+  <text x="300" y="446" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Messages never lost</text>
+
+  <!-- Prisma -->
+  <rect x="440" y="306" width="130" height="58" rx="12" fill="#1c2333" stroke="url(#green)" stroke-width="2"/>
+  <text x="505" y="330" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">Prisma ORM</text>
+  <text x="505" y="348" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Schema · Type-safe queries</text>
+
+  <!-- Database -->
+  <rect x="600" y="282" width="150" height="58" rx="12" fill="#1c2333" stroke="#D4AF37" stroke-width="2" filter="url(#glow)"/>
+  <ellipse cx="675" cy="292" rx="65" ry="8" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.5"/>
+  <text x="675" y="312" text-anchor="middle" font-family="Arial" font-size="13" fill="#ffffff" font-weight="bold">SQLite</text>
+  <text x="675" y="330" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Admin · Student · Contact</text>
+
+  <!-- Security / passwords -->
+  <rect x="600" y="380" width="150" height="48" rx="12" fill="#1c2333" stroke="url(#cool)" stroke-width="2"/>
+  <text x="675" y="400" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" font-weight="bold">bcrypt + jose</text>
+  <text x="675" y="418" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#9aa3b5">Password hashing · JWT signing</text>
+
+  <!-- Arrows: Visitors -> Frontend -->
+  <line x1="160" y1="183" x2="218" y2="183" stroke="#D4AF37" stroke-width="2" marker-end="url(#arrow-gold)"/>
+  <!-- Frontend -> Backend APIs -->
+  <line x1="380" y1="183" x2="428" y2="183" stroke="#00d4aa" stroke-width="2" marker-end="url(#arrow-cool)"/>
+  <!-- APIs -> Backend -->
+  <line x1="505" y1="226" x2="505" y2="278" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-gold)"/>
+  <line x1="505" y1="226" x2="200" y2="320" stroke="#4f8eff" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-blue)" opacity="0.6"/>
+  <!-- Backend -> Controllers -->
+  <line x1="200" y1="313" x2="238" y2="288" stroke="#ff6b9d" stroke-width="2" marker-end="url(#arrow-warm)"/>
+  <line x1="200" y1="313" x2="238" y2="360" stroke="#00d4aa" stroke-width="2" marker-end="url(#arrow-cool)"/>
+  <line x1="200" y1="313" x2="238" y2="432" stroke="#D4AF37" stroke-width="2" marker-end="url(#arrow-gold)"/>
+  <!-- Controllers -> Prisma -->
+  <line x1="360" y1="288" x2="438" y2="318" stroke="#4f8eff" stroke-width="1.5" marker-end="url(#arrow-blue)" opacity="0.7"/>
+  <line x1="360" y1="360" x2="438" y2="330" stroke="#4f8eff" stroke-width="1.5" marker-end="url(#arrow-blue)" opacity="0.7"/>
+  <line x1="360" y1="432" x2="438" y2="348" stroke="#4f8eff" stroke-width="1.5" marker-end="url(#arrow-blue)" opacity="0.7"/>
+  <!-- Prisma -> DB -->
+  <line x1="570" y1="322" x2="598" y2="311" stroke="#D4AF37" stroke-width="2" marker-end="url(#arrow-gold)"/>
+  <!-- DB -> Security back -->
+  <line x1="619" y1="340" x2="619" y2="378" stroke="#00d4aa" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-cool)"/>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-gold" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#D4AF37"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2e8b33"/>
+    </marker>
+    <marker id="arrow-cool" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00d4aa"/>
+    </marker>
+    <marker id="arrow-warm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ff6b9d"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4f8eff"/>
+    </marker>
+  </defs>
+
+  <!-- Labels -->
+  <text x="400" y="465" text-anchor="middle" font-family="Arial" font-size="10" fill="#9aa3b5">React 19 + Vite 6 · Node.js + TypeScript · Prisma + SQLite · JWT + bcrypt · Vercel</text>
+</svg>
