@@ -4,7 +4,6 @@ import {
   FaTrophy,
   FaMedal,
   FaBullseye,
-  FaChartLine,
   FaFire,
   FaFutbol,
   FaRunning,
@@ -18,6 +17,10 @@ const traitIcons = {
   Discipline: FaFire,
   Teamwork: FaUsers,
   'Competitive Mindset': FaTrophy,
+  users: FaUsers,
+  clock: FaFire,
+  handshake: FaUsers,
+  trophy: FaTrophy,
 };
 
 const sportIcons = {
@@ -32,6 +35,12 @@ const gradientMap = {
   Teamwork: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-blue))',
   'Competitive Mindset': 'linear-gradient(135deg, #f59e0b, #ef4444)',
 };
+
+const sportGradients = [
+  'linear-gradient(135deg, #1B5E20, #2e8b33)',
+  'linear-gradient(135deg, #D4AF37, #f4d03f)',
+  'linear-gradient(135deg, #00d4aa, #4f8eff)',
+];
 
 export default function Beyond() {
   const [traits, setTraits] = useState([]);
@@ -81,8 +90,8 @@ export default function Beyond() {
   ];
 
   const defaultSports = [
-    { title: 'Football', tag: 'Team Sport', achievement: 'Active player in inter-college tournaments', year: '2023', level: 85, levelLabel: 'Club-Level Player', icon: 'football' },
-    { title: '1500m Race', tag: 'Track & Field', achievement: 'Competed in distance events', year: '2024', level: 78, levelLabel: 'District Competitor', icon: 'running' },
+    { title: 'Football', tag: 'Team Sport', achievement: 'Active player in inter-college tournaments', level: 92, levelLabel: 'State-Level Player', icon: 'football' },
+    { title: '1500m Race', tag: 'Track & Field', achievement: 'Competed in distance events', level: 78, levelLabel: 'District Competitor', icon: 'running' },
   ];
 
   const displayTraits = traits.length > 0 ? traits : defaultTraits;
@@ -91,7 +100,7 @@ export default function Beyond() {
   return (
     <section id="beyond" className="section beyond-section content-visibility-auto">
       <div className="beyond-header fade-up visible">
-        <h2 className="section-title">Beyond The Keyboard</h2>
+        <h2 className="section-title gradient-text">Beyond The Keyboard</h2>
         <p className="section-subtitle">
           What drives me outside of code — leadership, discipline, and a love for sports.
         </p>
@@ -99,22 +108,24 @@ export default function Beyond() {
 
       <div className="beyond-traits">
         {displayTraits.map((trait, index) => {
-          const Icon = traitIcons[trait.name] || traitIcons[trait.icon] || FaChartLine;
+          const Icon = traitIcons[trait.name] || traitIcons[trait.icon] || FaTrophy;
           const bg = gradientMap[trait.name] || gradientMap[trait.icon] || 'var(--gradient-primary)';
           return (
             <div
               key={index}
               className={`beyond-trait fade-up ${visible ? 'visible' : ''}`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              style={{ transitionDelay: `${index * 0.12}s` }}
             >
-              <div className="beyond-trait-top">
-                <div className="beyond-trait-icon" style={{ background: bg }}>
-                  <Icon size={20} color="#fff" />
-                </div>
-                <span className="beyond-trait-num">0{index + 1}</span>
+              <div className="beyond-trait-dot" style={{ background: bg }}>
+                <Icon size={16} color="#fff" />
               </div>
-              <h3 className="beyond-trait-name">{trait.name}</h3>
-              <p className="beyond-trait-desc">{trait.description}</p>
+              <div className="beyond-trait-content">
+                <div className="beyond-trait-head">
+                  <h3 className="beyond-trait-name">{trait.name || trait.title}</h3>
+                  <span className="beyond-trait-num">0{index + 1}</span>
+                </div>
+                <p className="beyond-trait-desc">{trait.description}</p>
+              </div>
             </div>
           );
         })}
@@ -130,29 +141,32 @@ export default function Beyond() {
             const Icon = sportIcons[sport.icon] || sportIcons[sport.tag] || FaRunning;
             const level = Math.min(100, Math.max(0, Number(sport.level) || 0));
             return (
-              <div key={index} className={`beyond-sport fade-up ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
-                <div className="beyond-sport-head">
-                  <div className="beyond-sport-icon">
-                    <Icon size={18} />
+              <div key={index} className={`beyond-sport fade-up ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.12}s` }}>
+                <div className="beyond-sport-banner" style={{ background: sportGradients[index % sportGradients.length] }} />
+                <div className="beyond-sport-body">
+                  <div className="beyond-sport-head">
+                    <div className="beyond-sport-icon" style={{ background: sportGradients[index % sportGradients.length] }}>
+                      <Icon size={17} />
+                    </div>
+                    <div className="beyond-sport-meta">
+                      <h4 className="beyond-sport-title">{sport.title}</h4>
+                      <span className="beyond-sport-tag">{sport.tag}</span>
+                    </div>
+                    <span className="beyond-sport-level">{level}</span>
                   </div>
-                  <div className="beyond-sport-meta">
-                    <h4 className="beyond-sport-title">{sport.title}</h4>
-                    <span className="beyond-sport-tag">{sport.tag}</span>
+
+                  {sport.levelLabel && (
+                    <span className="beyond-sport-badge">{sport.levelLabel}</span>
+                  )}
+
+                  <div className="beyond-sport-bar">
+                    <span className="beyond-sport-bar-fill" style={{ width: `${level}%` }} />
                   </div>
-                  <span className="beyond-sport-level">{level}</span>
+
+                  <p className="beyond-sport-desc">
+                    {sport.description || sport.achievement || sport.year}
+                  </p>
                 </div>
-
-                {sport.levelLabel && (
-                  <span className="beyond-sport-badge">{sport.levelLabel}</span>
-                )}
-
-                <div className="beyond-sport-bar">
-                  <span className="beyond-sport-bar-fill" style={{ width: `${level}%` }} />
-                </div>
-
-                <p className="beyond-sport-desc">
-                  {sport.description || sport.achievement || sport.year}
-                </p>
               </div>
             );
           })}
