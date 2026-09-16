@@ -43,7 +43,7 @@ async function main() {
       { name: "RAG", icon: "ai", color: "#10b981", category: "AI / ML", description: "Retrieval-Augmented Generation pipelines." },
       { name: "LLM", icon: "ai", color: "#8b5cf6", category: "AI / ML", description: "Large Language Model integration & prompting." },
       { name: "Transformer", icon: "ai", color: "#f97316", category: "AI / ML", description: "Transformer architecture & attention models." },
-      { name: "Vector DB", icon: "database", color: "#06b6d4", category: "AI / ML", description: "Vector databases for semantic search." },
+      { name: "Vector DB", icon: "database", color: "#06b6d4", category: "Databases", description: "Vector databases for semantic search." },
       { name: "RLM", icon: "ai", color: "#ec4899", category: "AI / ML", description: "Reasoning Language Models from scratch." },
       { name: "AWS", icon: "code", color: "#FF9900", category: "DevOps", description: "Amazon Web Services cloud platform." },
       { name: "Render", icon: "code", color: "#46e3b7", category: "DevOps", description: "Cloud app deployment & hosting." },
